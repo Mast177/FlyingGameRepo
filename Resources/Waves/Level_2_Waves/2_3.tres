@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dsha6ia7j81ga"]
+
+[ext_resource type="PackedScene" uid="uid://c20kaebtyhfvn" path="res://Scenes/Enemies/Poofer Varients/green_poofer.tscn" id="1_1c6iq"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_k5o0c"]
+
+[resource]
+script = ExtResource("2_k5o0c")
+enemy_wave = Array[PackedScene]([ExtResource("1_1c6iq"), ExtResource("1_1c6iq"), ExtResource("1_1c6iq")])
+wave_cooldown = 6.0
+spawn_interval = 1.5
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

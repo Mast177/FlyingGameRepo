@@ -1,0 +1,136 @@
+[gd_scene load_steps=21 format=3 uid="uid://ca6ryr7l75phj"]
+
+[ext_resource type="Script" uid="uid://bp3p7f1yekgpg" path="res://Assets/Scripts/orange_projectile.gd" id="1_2crww"]
+[ext_resource type="Texture2D" uid="uid://bw3nesa232yw" path="res://Assets/Sprites/Orange_Bullet.png" id="2_7ot4g"]
+[ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="3_pv06d"]
+[ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="3_sfth1"]
+[ext_resource type="AudioStream" uid="uid://3hjpwu7gy7bk" path="res://Assets/Audio/SFX/DSGNTonl_SKILL IMPACT-Retro Laser_HY_PC-004.wav" id="5_6c2kv"]
+[ext_resource type="AudioStream" uid="uid://bj0pkflt81f10" path="res://Assets/Audio/SFX/MAGSpel_CAST-Panicked_HY_PC-006_44100.wav" id="5_ucruj"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j5p8c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tcyr"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="Gradient" id="Gradient_g4cam"]
+colors = PackedColorArray(1, 1, 1, 1, 0.956863, 0.498039, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rhitb"]
+gradient = SubResource("Gradient_g4cam")
+
+[sub_resource type="Curve" id="Curve_6jt0i"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ej1n"]
+curve = SubResource("Curve_6jt0i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_escht"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 28.64
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_2ej1n")
+scale_min = 3.0
+scale_max = 3.0
+color = Color(0.956863, 0.498039, 0, 0.454902)
+color_ramp = SubResource("GradientTexture1D_rhitb")
+
+[sub_resource type="Gradient" id="Gradient_q4fju"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aubb3"]
+gradient = SubResource("Gradient_q4fju")
+
+[sub_resource type="Curve" id="Curve_402us"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dhc8e"]
+curve = SubResource("Curve_402us")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qmxyr"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+damping_min = 200.0
+damping_max = 200.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_dhc8e")
+color = Color(0.956863, 0.498039, 0, 0.454902)
+color_ramp = SubResource("GradientTexture1D_aubb3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6c2kv"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("5_6c2kv")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n4mbc"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_ucruj")
+
+[node name="OrangeProjectile" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_2crww")
+SPEED = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7ot4g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"Orange_Projectile_Library": SubResource("AnimationLibrary_j5p8c")
+}
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_sfth1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_7tcyr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_pv06d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_7tcyr")
+
+[node name="LifeTime" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="TrailParticles" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 40
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_escht")
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qmxyr")
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6c2kv")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SpawnSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_n4mbc")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=4 format=3 uid="uid://d1idals6pg6q"]
+
+[ext_resource type="PackedScene" uid="uid://npohilx3bh2n" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_bouncer.tscn" id="1_htkbh"]
+[ext_resource type="PackedScene" uid="uid://b2kv8cdg2plkm" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_chaser.tscn" id="2_0t1hw"]
+[ext_resource type="Script" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="3_p0qj6"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_p0qj6")
+enemy_wave = Array[PackedScene]([ExtResource("1_htkbh"), ExtResource("2_0t1hw"), ExtResource("1_htkbh")])
+WAVE_SPAWN_BEHAVIOR = "Random Spawn"
+spawn_index = 0
+enemy_index = 0
+wave_cooldown = 7.0
+spawn_interval = 1.0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=15 format=3 uid="uid://ck0n22at2dgbs"]
+
+[ext_resource type="Script" uid="uid://br8p0semvj353" path="res://Assets/Scripts/ManagerScripts/level_script.gd" id="1_fphuk"]
+[ext_resource type="PackedScene" uid="uid://csag2ngl4aptr" path="res://Scenes/Misc/ui.tscn" id="2_pnnky"]
+[ext_resource type="PackedScene" uid="uid://rdpq2s2x58ml" path="res://Scenes/Misc/level_complete.tscn" id="3_blpqv"]
+[ext_resource type="PackedScene" uid="uid://dm81kmusre1gt" path="res://Scenes/Misc/enemy_wave_spawner.tscn" id="4_1jlnc"]
+[ext_resource type="PackedScene" uid="uid://cmq8f6ackf8o6" path="res://Scenes/Misc/game_over.tscn" id="4_uqiic"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="5_u40f0"]
+[ext_resource type="Resource" uid="uid://5ple661p52e8" path="res://Resources/Waves/Level_2_Waves/2_1.tres" id="6_pnnky"]
+[ext_resource type="Resource" uid="uid://cqe7w30jlu1yw" path="res://Resources/Waves/Level_2_Waves/2_2.tres" id="7_blpqv"]
+[ext_resource type="PackedScene" uid="uid://bqgqxegjy55wu" path="res://Scenes/Misc/kill_box.tscn" id="7_uqiic"]
+[ext_resource type="Resource" uid="uid://dsha6ia7j81ga" path="res://Resources/Waves/Level_2_Waves/2_3.tres" id="8_1jlnc"]
+[ext_resource type="Resource" uid="uid://coquc40j42ca7" path="res://Resources/Waves/Level_2_Waves/2_4.tres" id="9_u40f0"]
+[ext_resource type="AudioStream" uid="uid://0mfk4w6mdv3m" path="res://Assets/Audio/Music/Space_Invasion.wav" id="11_u40f0"]
+[ext_resource type="AudioStream" uid="uid://canx5maxqa5pa" path="res://Assets/Audio/Music/Game_Over_Effect_1.wav" id="12_0x4y1"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_uqiic"]
+clip_count = 2
+clip_0/name = &"Space Invasion"
+clip_0/stream = ExtResource("11_u40f0")
+clip_0/auto_advance = 0
+clip_1/name = &"Game Over Effect 1"
+clip_1/stream = ExtResource("12_0x4y1")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="Level" type="Node2D" groups=["main"]]
+script = ExtResource("1_fphuk")
+
+[node name="UI" parent="." instance=ExtResource("2_pnnky")]
+
+[node name="Level_Complete" parent="UI" instance=ExtResource("3_blpqv")]
+
+[node name="Game_Over" parent="UI" instance=ExtResource("4_uqiic")]
+
+[node name="EnemyWaveSpawner" parent="." instance=ExtResource("4_1jlnc")]
+position = Vector2(643, -24)
+level_number = 2
+waves = Array[ExtResource("5_u40f0")]([ExtResource("6_pnnky"), ExtResource("7_blpqv"), ExtResource("8_1jlnc"), ExtResource("9_u40f0")])
+wave_cooldown = 5.0
+spawn_interval = 1.0
+SPAWN_BEHAVIOR = "Spawn One"
+
+[node name="KillBox" parent="." instance=ExtResource("7_uqiic")]
+position = Vector2(641, 850)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_uqiic")
+autoplay = true
+bus = &"Music"

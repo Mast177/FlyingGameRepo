@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://7hhr7t3pilxq"]
+
+[ext_resource type="PackedScene" uid="uid://ddjcdkwqtljxw" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_default.tscn" id="1_e3e0p"]
+
+[node name="OrangeShooterBouncer" instance=ExtResource("1_e3e0p")]
+point_to_player = false
+SPEED = 150
+BEHAVIOR = "Edge Bounce"
+angle = 35.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"Charge_And_Shoot"
+
+[node name="Hitbox" parent="." index="2"]
+collision_layer = 1
+monitorable = false
+
+[node name="GPUParticles2D" parent="." index="7"]
+emitting = true

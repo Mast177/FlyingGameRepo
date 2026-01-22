@@ -1,0 +1,66 @@
+[gd_scene load_steps=19 format=3 uid="uid://b32ixpqa702we"]
+
+[ext_resource type="Script" uid="uid://br8p0semvj353" path="res://Assets/Scripts/ManagerScripts/level_script.gd" id="1_wgi7s"]
+[ext_resource type="PackedScene" uid="uid://csag2ngl4aptr" path="res://Scenes/Misc/ui.tscn" id="2_7qaba"]
+[ext_resource type="PackedScene" uid="uid://dm81kmusre1gt" path="res://Scenes/Misc/enemy_wave_spawner.tscn" id="3_n3thn"]
+[ext_resource type="PackedScene" uid="uid://cmq8f6ackf8o6" path="res://Scenes/Misc/game_over.tscn" id="4_3628d"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="5_afv7b"]
+[ext_resource type="Resource" uid="uid://bjekrv2hhjadx" path="res://Resources/Waves/Level_1_Waves/1_1.tres" id="6_7r2dd"]
+[ext_resource type="PackedScene" uid="uid://bqgqxegjy55wu" path="res://Scenes/Misc/kill_box.tscn" id="6_bmn2l"]
+[ext_resource type="Resource" uid="uid://c4jxfc32cmc6d" path="res://Resources/Waves/Level_1_Waves/1_2.tres" id="7_k2mw1"]
+[ext_resource type="PackedScene" uid="uid://npohilx3bh2n" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_bouncer.tscn" id="8_7r2dd"]
+[ext_resource type="Resource" uid="uid://frsuwxp3n0v6" path="res://Resources/Waves/Level_1_Waves/1_4.tres" id="9_3628d"]
+[ext_resource type="PackedScene" uid="uid://b2kv8cdg2plkm" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_chaser.tscn" id="9_k2mw1"]
+[ext_resource type="Resource" uid="uid://d2xm1ouowp1g0" path="res://Resources/Waves/Level_1_Waves/1_5.tres" id="10_irw6p"]
+[ext_resource type="Resource" uid="uid://cf61t3oc20l32" path="res://Resources/Waves/Level_1_Waves/1_6.tres" id="11_31phq"]
+[ext_resource type="PackedScene" uid="uid://rdpq2s2x58ml" path="res://Scenes/Misc/level_complete.tscn" id="13_athbf"]
+[ext_resource type="AudioStream" uid="uid://0mfk4w6mdv3m" path="res://Assets/Audio/Music/Space_Invasion.wav" id="14_k2mw1"]
+[ext_resource type="AudioStream" uid="uid://canx5maxqa5pa" path="res://Assets/Audio/Music/Game_Over_Effect_1.wav" id="15_tjl6l"]
+
+[sub_resource type="Resource" id="Resource_irw6p"]
+resource_local_to_scene = true
+script = ExtResource("5_afv7b")
+enemy_wave = Array[PackedScene]([ExtResource("8_7r2dd"), ExtResource("9_k2mw1"), ExtResource("8_7r2dd")])
+wave_cooldown = 7.0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_irw6p"]
+clip_count = 2
+clip_0/name = &"Space Invasion"
+clip_0/stream = ExtResource("14_k2mw1")
+clip_0/auto_advance = 0
+clip_1/name = &"Game Over Effect 1"
+clip_1/stream = ExtResource("15_tjl6l")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="Level" type="Node2D" groups=["main"]]
+script = ExtResource("1_wgi7s")
+
+[node name="UI" parent="." instance=ExtResource("2_7qaba")]
+
+[node name="Level_Complete" parent="UI" instance=ExtResource("13_athbf")]
+mouse_filter = 2
+
+[node name="Game_Over" parent="UI" instance=ExtResource("4_3628d")]
+
+[node name="EnemyWaveSpawner" parent="." instance=ExtResource("3_n3thn")]
+position = Vector2(643, -24)
+waves = Array[ExtResource("5_afv7b")]([ExtResource("6_7r2dd"), ExtResource("7_k2mw1"), SubResource("Resource_irw6p"), ExtResource("9_3628d"), ExtResource("10_irw6p"), ExtResource("11_31phq")])
+wave_cooldown = 1.0
+spawn_interval = 1.5
+SPAWN_BEHAVIOR = "Left To Right"
+
+[node name="KillBox" parent="." instance=ExtResource("6_bmn2l")]
+position = Vector2(641, 850)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_irw6p")
+autoplay = true
+bus = &"Music"

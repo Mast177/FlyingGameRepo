@@ -1,0 +1,14 @@
+[gd_scene load_steps=7 format=3 uid="uid://bntnifrvh7av5"]
+
+[ext_resource type="PackedScene" uid="uid://b3dv0g0y77okd" path="res://Scenes/Levels/level_base.tscn" id="1_us8ef"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_yy6i0"]
+[ext_resource type="Resource" uid="uid://djde0q7oi03jt" path="res://Resources/Waves/Level_3_Waves/3_1.tres" id="3_167vu"]
+[ext_resource type="Resource" uid="uid://d1y75luxf0wwy" path="res://Resources/Waves/Level_3_Waves/3_2.tres" id="4_x1k1j"]
+[ext_resource type="Resource" uid="uid://cnjfn1115r3b4" path="res://Resources/Waves/Level_3_Waves/3_3.tres" id="5_4ahh4"]
+[ext_resource type="Resource" uid="uid://cmmeip4o3yx4p" path="res://Resources/Waves/Level_3_Waves/3_4.tres" id="6_dl55b"]
+
+[node name="Level" instance=ExtResource("1_us8ef")]
+
+[node name="EnemyWaveSpawner" parent="." index="1"]
+level_number = 3
+waves = Array[ExtResource("2_yy6i0")]([ExtResource("3_167vu"), ExtResource("4_x1k1j"), ExtResource("5_4ahh4"), ExtResource("6_dl55b")])

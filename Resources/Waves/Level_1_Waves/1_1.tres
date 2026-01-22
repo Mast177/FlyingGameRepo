@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://bjekrv2hhjadx"]
+
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_tplbj"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_em402"]
+
+[resource]
+script = ExtResource("2_em402")
+enemy_wave = Array[PackedScene]([ExtResource("1_tplbj"), ExtResource("1_tplbj"), ExtResource("1_tplbj"), ExtResource("1_tplbj"), ExtResource("1_tplbj"), ExtResource("1_tplbj")])
+WAVE_SPAWN_BEHAVIOR = "Left To Right"
+wave_cooldown = 15.0
+spawn_interval = 1.5

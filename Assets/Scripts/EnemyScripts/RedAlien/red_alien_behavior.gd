@@ -1,0 +1,2 @@
+extends EnemyDefault
+class_name RedAlien

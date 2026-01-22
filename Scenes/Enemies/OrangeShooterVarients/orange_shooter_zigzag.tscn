@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cofhq8wb6lhss"]
+
+[ext_resource type="PackedScene" uid="uid://ddjcdkwqtljxw" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_default.tscn" id="1_6eaqr"]
+
+[node name="OrangeShooterZigzag" instance=ExtResource("1_6eaqr")]
+point_to_player = false
+SPEED = 150
+BEHAVIOR = "Zigzag"
+zig_angle = 25.0

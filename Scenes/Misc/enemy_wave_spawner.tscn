@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm81kmusre1gt"]
+
+[ext_resource type="Script" uid="uid://dynari3jhilcp" path="res://Assets/Scripts/ManagerScripts/enemy_wave_spawner.gd" id="1_4qa3m"]
+
+[node name="EnemyWaveSpawner" type="Node2D"]
+z_index = 3
+script = ExtResource("1_4qa3m")
+spawn_interval = 0.4
+SPAWN_BEHAVIOR = "Test"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -25.0
+offset_right = 325.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="SpawnLine" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint1" type="Node2D" parent="Control/SpawnLine/CenterContainer" groups=["spawn_point"]]
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint2" type="Node2D" parent="Control/SpawnLine/CenterContainer2" groups=["spawn_point"]]
+
+[node name="CenterContainer3" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint3" type="Node2D" parent="Control/SpawnLine/CenterContainer3" groups=["spawn_point"]]
+
+[node name="CenterContainer4" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint4" type="Node2D" parent="Control/SpawnLine/CenterContainer4" groups=["spawn_point"]]
+
+[node name="CenterContainer5" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint5" type="Node2D" parent="Control/SpawnLine/CenterContainer5" groups=["spawn_point"]]
+
+[node name="CenterContainer6" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint6" type="Node2D" parent="Control/SpawnLine/CenterContainer6" groups=["spawn_point"]]
+
+[node name="CenterContainer7" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint7" type="Node2D" parent="Control/SpawnLine/CenterContainer7" groups=["spawn_point"]]
+
+[node name="CenterContainer8" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint8" type="Node2D" parent="Control/SpawnLine/CenterContainer8" groups=["spawn_point"]]
+
+[node name="CenterContainer9" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint9" type="Node2D" parent="Control/SpawnLine/CenterContainer9" groups=["spawn_point"]]
+
+[node name="CenterContainer10" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint10" type="Node2D" parent="Control/SpawnLine/CenterContainer10" groups=["spawn_point"]]
+
+[node name="CenterContainer11" type="CenterContainer" parent="Control/SpawnLine"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Spawnpoint11" type="Node2D" parent="Control/SpawnLine/CenterContainer11" groups=["spawn_point"]]
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="WaveCooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="WaveCooldownTimer" to="." method="_on_wave_cooldown_timer_timeout"]

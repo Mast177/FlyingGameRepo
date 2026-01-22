@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqgqxegjy55wu"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/ManagerScripts/kill_box.gd" id="1_d45sr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lieg2"]
+
+[node name="KillBox" type="Area2D"]
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_d45sr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_lieg2")

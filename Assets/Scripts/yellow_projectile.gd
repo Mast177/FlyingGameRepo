@@ -1,0 +1,2 @@
+extends OrangeProjectile
+class_name YellowProjectile

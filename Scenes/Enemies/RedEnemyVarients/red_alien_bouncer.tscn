@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://npohilx3bh2n"]
+
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_0pqxq"]
+[ext_resource type="Script" uid="uid://c3o64tgr4g2rl" path="res://Assets/Scripts/EnemyScripts/RedAlien/red_alien_behavior.gd" id="2_l5g4t"]
+
+[node name="RedAlienBouncer" instance=ExtResource("1_0pqxq")]
+script = ExtResource("2_l5g4t")
+SPEED = 75
+HEALTH = 5
+BEHAVIOR = "Edge Bounce"
+angle = 30.0
+direction_change_interval = 3.0
+
+[node name="Hurtbox" parent="." index="1"]
+enable_friendly_fire = false

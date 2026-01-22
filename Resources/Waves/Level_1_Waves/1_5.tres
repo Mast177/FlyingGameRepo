@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://d2xm1ouowp1g0"]
+
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_dvpeu"]
+[ext_resource type="Script" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_wsus3"]
+
+[resource]
+script = ExtResource("2_wsus3")
+enemy_wave = Array[PackedScene]([ExtResource("1_dvpeu"), ExtResource("1_dvpeu"), ExtResource("1_dvpeu")])
+WAVE_SPAWN_BEHAVIOR = "Spawn In Line"
+spawn_index = 3
+enemy_index = 0
+wave_cooldown = 3.0
+spawn_interval = 0.5

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ship_upgrades" load_steps=4 format=3 uid="uid://r2f54tl8i4ye"]
+
+[ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_45sxl"]
+[ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_mtw1r"]
+[ext_resource type="Resource" uid="uid://ddajq711b6vke" path="res://Resources/PlayerUpgrades/WeaponCount/weapon_count_1.tres" id="3_0hn8o"]
+
+[resource]
+script = ExtResource("1_45sxl")
+upgrade_name = "Weapon Count Upgrade"
+upgrade_list = Dictionary[int, ExtResource("2_mtw1r")]({
+1: ExtResource("3_0hn8o")
+})
+metadata/_custom_type_script = "uid://c15n8qxt58obm"

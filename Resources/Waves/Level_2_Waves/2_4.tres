@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=4 format=3 uid="uid://coquc40j42ca7"]
+
+[ext_resource type="PackedScene" uid="uid://c20kaebtyhfvn" path="res://Scenes/Enemies/Poofer Varients/green_poofer.tscn" id="1_0c3dy"]
+[ext_resource type="PackedScene" uid="uid://b2kv8cdg2plkm" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_chaser.tscn" id="2_wkucp"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="3_c8l0d"]
+
+[resource]
+script = ExtResource("3_c8l0d")
+enemy_wave = Array[PackedScene]([ExtResource("1_0c3dy"), ExtResource("2_wkucp"), ExtResource("2_wkucp"), ExtResource("1_0c3dy"), ExtResource("2_wkucp"), ExtResource("1_0c3dy"), ExtResource("2_wkucp"), ExtResource("2_wkucp"), ExtResource("2_wkucp"), ExtResource("1_0c3dy"), ExtResource("2_wkucp")])
+spawn_interval = 0.75
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

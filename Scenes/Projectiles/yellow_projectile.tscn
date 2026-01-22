@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://d7j8pt3ftecq"]
+
+[ext_resource type="PackedScene" uid="uid://ca6ryr7l75phj" path="res://Scenes/Projectiles/orange_projectile.tscn" id="1_p0x72"]
+[ext_resource type="Script" path="res://Assets/Scripts/yellow_projectile.gd" id="2_3l0kp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_71j0h"]
+load_path = "res://.godot/imported/Yellow_Projectile.png-51160b6cbb42614dbf77ec142dec8df2.ctex"
+
+[sub_resource type="Gradient" id="Gradient_g4cam"]
+colors = PackedColorArray(1, 1, 1, 1, 0.956863, 0.498039, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rhitb"]
+gradient = SubResource("Gradient_g4cam")
+
+[sub_resource type="Curve" id="Curve_6jt0i"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ej1n"]
+curve = SubResource("Curve_6jt0i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ihhc"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 28.64
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_2ej1n")
+scale_min = 3.0
+scale_max = 3.0
+color = Color(0.709804, 0.8, 0, 0.454902)
+color_ramp = SubResource("GradientTexture1D_rhitb")
+
+[sub_resource type="Gradient" id="Gradient_q4fju"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aubb3"]
+gradient = SubResource("Gradient_q4fju")
+
+[sub_resource type="Curve" id="Curve_402us"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dhc8e"]
+curve = SubResource("Curve_402us")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d7ofs"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+damping_min = 200.0
+damping_max = 200.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_dhc8e")
+color = Color(0.709804, 0.8, 0, 0.454902)
+color_ramp = SubResource("GradientTexture1D_aubb3")
+
+[node name="YellowProjectile" instance=ExtResource("1_p0x72")]
+script = ExtResource("2_3l0kp")
+SPEED = 300.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("CompressedTexture2D_71j0h")
+
+[node name="TrailParticles" parent="." index="4"]
+process_material = SubResource("ParticleProcessMaterial_2ihhc")
+
+[node name="ExplosionParticles" parent="." index="5"]
+process_material = SubResource("ParticleProcessMaterial_d7ofs")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

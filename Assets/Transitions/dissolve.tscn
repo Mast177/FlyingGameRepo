@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://vrbuf13ub7bq"]
+
+[ext_resource type="Script" uid="uid://dqisvwi2533hr" path="res://Assets/Transitions/dissolve.gd" id="1_s734w"]
+
+[node name="Dissolve" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s734w")

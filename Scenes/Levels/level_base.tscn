@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3dv0g0y77okd"]
+
+[ext_resource type="Script" uid="uid://br8p0semvj353" path="res://Assets/Scripts/ManagerScripts/level_script.gd" id="1_t6dks"]
+[ext_resource type="PackedScene" uid="uid://csag2ngl4aptr" path="res://Scenes/Misc/ui.tscn" id="2_1uwe2"]
+[ext_resource type="PackedScene" uid="uid://rdpq2s2x58ml" path="res://Scenes/Misc/level_complete.tscn" id="3_3vcfl"]
+[ext_resource type="PackedScene" uid="uid://dm81kmusre1gt" path="res://Scenes/Misc/enemy_wave_spawner.tscn" id="3_oo65s"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="4_cjn6a"]
+[ext_resource type="PackedScene" uid="uid://cmq8f6ackf8o6" path="res://Scenes/Misc/game_over.tscn" id="4_ouscj"]
+[ext_resource type="Resource" uid="uid://litrjhmkcps6" path="res://Resources/Waves/test_wave_1.tres" id="5_kbs4g"]
+[ext_resource type="PackedScene" uid="uid://bqgqxegjy55wu" path="res://Scenes/Misc/kill_box.tscn" id="6_mrmml"]
+[ext_resource type="AudioStream" uid="uid://0mfk4w6mdv3m" path="res://Assets/Audio/Music/Space_Invasion.wav" id="8_614yd"]
+[ext_resource type="AudioStream" uid="uid://canx5maxqa5pa" path="res://Assets/Audio/Music/Game_Over_Effect_1.wav" id="9_4f6dp"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ouscj"]
+clip_count = 2
+clip_0/name = &"Space Invasion"
+clip_0/stream = ExtResource("8_614yd")
+clip_0/auto_advance = 0
+clip_1/name = &"Game Over Effect 1"
+clip_1/stream = ExtResource("9_4f6dp")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="Level" type="Node2D" groups=["main"]]
+script = ExtResource("1_t6dks")
+
+[node name="UI" parent="." instance=ExtResource("2_1uwe2")]
+
+[node name="Level_Complete" parent="UI" instance=ExtResource("3_3vcfl")]
+
+[node name="Game_Over" parent="UI" instance=ExtResource("4_ouscj")]
+
+[node name="EnemyWaveSpawner" parent="." instance=ExtResource("3_oo65s")]
+position = Vector2(643, -24)
+waves = Array[ExtResource("4_cjn6a")]([ExtResource("5_kbs4g")])
+wave_cooldown = 5.0
+spawn_interval = 1.0
+SPAWN_BEHAVIOR = "Spawn One"
+
+[node name="KillBox" parent="." instance=ExtResource("6_mrmml")]
+position = Vector2(641, 850)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_ouscj")
+autoplay = true
+bus = &"Music"

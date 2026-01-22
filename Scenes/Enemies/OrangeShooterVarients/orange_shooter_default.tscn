@@ -1,0 +1,247 @@
+[gd_scene load_steps=34 format=3 uid="uid://ddjcdkwqtljxw"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/EnemyScripts/OrangeShooter/orange_shooter_behavior.gd" id="2_c5i5r"]
+[ext_resource type="Texture2D" uid="uid://csj8m7otg24y6" path="res://Assets/Sprites/Orange_Shooter_Sheet.png" id="3_mr68r"]
+[ext_resource type="PackedScene" uid="uid://d7j8pt3ftecq" path="res://Scenes/Projectiles/yellow_projectile.tscn" id="3_t0vgv"]
+[ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="4_eca5o"]
+[ext_resource type="AnimationLibrary" uid="uid://cxhbwwmo76c6t" path="res://Assets/Animations/Shooter.res" id="5_h64h8"]
+[ext_resource type="Script" path="res://Assets/Scripts/hurtbox.gd" id="6_no1ee"]
+[ext_resource type="Script" path="res://Assets/Scripts/hitbox.gd" id="7_1a0ln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsqt5"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgulc"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ciia"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2p2w"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leoqi"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b52eu"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_703ws"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3ams"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nudat"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afib7"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyyf5"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gj0k"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp5w1"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e305h"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f848m"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbe17"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fupf"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj26l"]
+atlas = ExtResource("4_eca5o")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dua8j"]
+atlas = ExtResource("3_mr68r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oowsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsqt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgulc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ciia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2p2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leoqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b52eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_703ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3ams")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nudat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afib7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyyf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gj0k")
+}],
+"loop": true,
+"name": &"Charge_And_Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp5w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e305h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f848m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbe17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fupf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj26l")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dua8j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_353mi"]
+radius = 18.0278
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfyu3"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r02jg"]
+radius = 26.0768
+
+[sub_resource type="Curve" id="Curve_jwmlo"]
+_data = [Vector2(0.02, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l6y77"]
+curve = SubResource("Curve_jwmlo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1v6ot"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+inherit_velocity_ratio = 1.0
+spread = 180.0
+initial_velocity_min = 53.01
+initial_velocity_max = 165.54
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_l6y77")
+color = Color(0.709804, 0.8, 0, 0.454902)
+
+[node name="OrangeShooterDefault" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("2_c5i5r")
+point_to_player = true
+projectile = ExtResource("3_t0vgv")
+SCORE_VALUE = 200
+SPEED = 50
+HEALTH = 5
+BEHAVIOR = "Still"
+death = "Shooter/Death"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oowsf")
+animation = &"Charge_And_Shoot"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"Shooter": ExtResource("5_h64h8")
+}
+autoplay = "Shooter/Idle"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("6_no1ee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_353mi")
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(0.84, 0.84)
+collision_layer = 3
+script = ExtResource("7_1a0ln")
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(1.58333, 1.58333)
+shape = SubResource("CircleShape2D_rfyu3")
+
+[node name="EdgeDetector" type="Area2D" parent="."]
+
+[node name="EdgeDetectorShape" type="CollisionShape2D" parent="EdgeDetector"]
+shape = SubResource("CircleShape2D_r02jg")
+
+[node name="ZigzagTimer" type="Timer" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="ProjectileSource" type="Node2D" parent="."]
+position = Vector2(0, 19)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_1v6ot")
+lifetime = 0.3
+speed_scale = 1.5
+
+[connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="EdgeDetector" to="." method="_on_edge_detector_body_entered"]
+[connection signal="timeout" from="ZigzagTimer" to="." method="_on_zigzag_timer_timeout"]

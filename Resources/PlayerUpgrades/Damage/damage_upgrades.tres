@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ship_upgrades" load_steps=5 format=3 uid="uid://cds8aoahwncr2"]
+
+[ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_w5nwa"]
+[ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_eiqi4"]
+[ext_resource type="Resource" uid="uid://14wfblietcpw" path="res://Resources/PlayerUpgrades/Damage/damage_1.tres" id="3_eiqi4"]
+[ext_resource type="Resource" uid="uid://bcm8p7srqpe3s" path="res://Resources/PlayerUpgrades/Damage/damage_2.tres" id="4_owkc6"]
+
+[resource]
+script = ExtResource("1_w5nwa")
+upgrade_name = "Damage Upgrade"
+upgrade_list = Dictionary[int, ExtResource("2_eiqi4")]({
+1: ExtResource("3_eiqi4"),
+2: ExtResource("4_owkc6")
+})
+metadata/_custom_type_script = "uid://c15n8qxt58obm"

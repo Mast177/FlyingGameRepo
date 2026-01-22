@@ -1,0 +1,776 @@
+[gd_scene load_steps=37 format=3 uid="uid://dy4vhkuyq3cxk"]
+
+[ext_resource type="Script" uid="uid://c82uho7rqt0yt" path="res://Assets/Scripts/Menus/upgrade_menu.gd" id="1_001oc"]
+[ext_resource type="Resource" uid="uid://cip27l816fvh2" path="res://Resources/PlayerUpgrades/Health/health_upgrades.tres" id="2_rr8f0"]
+[ext_resource type="Resource" uid="uid://cds8aoahwncr2" path="res://Resources/PlayerUpgrades/Damage/damage_upgrades.tres" id="3_lxyqr"]
+[ext_resource type="Resource" uid="uid://dp17brbxyq8cx" path="res://Resources/PlayerUpgrades/Speed/speed_upgrades.tres" id="4_bylqn"]
+[ext_resource type="Resource" uid="uid://r2f54tl8i4ye" path="res://Resources/PlayerUpgrades/WeaponCount/weapon_count_upgrades.tres" id="5_s0coo"]
+[ext_resource type="Resource" uid="uid://c00kdcgprpkq1" path="res://Resources/PlayerUpgrades/Shield/shield_upgrades.tres" id="6_rqdgh"]
+[ext_resource type="Texture2D" uid="uid://co34qolnn0mn3" path="res://Assets/Sprites/Icons/Heart_Icon.png" id="7_2gnvv"]
+[ext_resource type="Texture2D" uid="uid://bg3ycwx4wq3y3" path="res://Assets/Sprites/Icons/Damage_Icon.png" id="8_xn0a8"]
+[ext_resource type="Texture2D" uid="uid://bowxx6cm0b7sh" path="res://Assets/Sprites/Icons/Speed_Icon.png" id="9_kfcao"]
+[ext_resource type="Texture2D" uid="uid://dkojmk6d0vhd0" path="res://Assets/Sprites/Icons/Weapon_Increase_Icon.png" id="10_at1bt"]
+[ext_resource type="Texture2D" uid="uid://dhikrjm56e61" path="res://Assets/Sprites/Icons/Shield_Icon.png" id="11_4l77f"]
+[ext_resource type="AudioStream" uid="uid://b38sgp8xiuafe" path="res://Assets/Audio/SFX/coin.wav" id="12_75jmb"]
+[ext_resource type="AudioStream" uid="uid://dney5c2mubyp6" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Forced Shutdown_HY_PC-003.wav" id="13_ba3k1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_76hnu"]
+font_size = 50
+font_color = Color(0, 0.730016, 9.62615e-07, 1)
+outline_size = 3
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8mek"]
+font_size = 50
+font_color = Color(0, 0.730016, 9.62615e-07, 1)
+outline_size = 3
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4l8y"]
+font_size = 25
+font_color = Color(1, 0.194376, 0.144153, 1)
+outline_size = 3
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uce5i"]
+font_size = 30
+font_color = Color(0, 0.730016, 9.62615e-07, 1)
+outline_size = 3
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6t7yc"]
+font_size = 30
+font_color = Color(1, 1, 0, 1)
+outline_size = 3
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abq1w"]
+bg_color = Color(1.13107e-06, 0.634216, 9.62615e-07, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yrp6"]
+bg_color = Color(0, 0.503838, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gco6"]
+bg_color = Color(0, 0.754301, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq8eb"]
+bg_color = Color(0, 0.411765, 0, 0.639216)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnex5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcxtd"]
+font_size = 25
+font_color = Color(1, 0.513726, 0.145098, 1)
+outline_size = 3
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhsr7"]
+font_size = 25
+font_color = Color(0.356708, 0.518565, 1, 1)
+outline_size = 3
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ub6qk"]
+font_size = 25
+font_color = Color(0.32642, 0.290468, 0.284423, 1)
+outline_size = 3
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sp1kf"]
+font_size = 25
+font_color = Color(0, 0.653664, 0.672551, 1)
+outline_size = 3
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8mek"]
+bg_color = Color(0.9882353, 0.7529412, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r84ea"]
+bg_color = Color(0.74718994, 0.5674646, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tm7qu"]
+bg_color = Color(0.8901961, 0.6784314, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojkyy"]
+bg_color = Color(0.6117647, 0.4627451, 0, 0.5294118)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g85wm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_001oc"]
+bg_color = Color(0.827451, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr8f0"]
+bg_color = Color(1, 0.833941, 0.805989, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxyqr"]
+bg_color = Color(1, 0.469494, 0.401435, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bylqn"]
+
+[node name="UpgradeMenu" type="Control" groups=["health"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_001oc")
+health = ExtResource("2_rr8f0")
+damage = ExtResource("3_lxyqr")
+speed = ExtResource("4_bylqn")
+weapon_count = ExtResource("5_s0coo")
+shield = ExtResource("6_rqdgh")
+
+[node name="Wallet" type="Label" parent="."]
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "$1000"
+label_settings = SubResource("LabelSettings_76hnu")
+horizontal_alignment = 2
+
+[node name="Payment" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 64.0
+offset_right = 229.0
+offset_bottom = 133.0
+text = "+$0"
+label_settings = SubResource("LabelSettings_s8mek")
+horizontal_alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Health" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Health"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Health
+"
+label_settings = SubResource("LabelSettings_a4l8y")
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Health"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 98.0
+text = "Current"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Health/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Health/HBoxContainer/Icon"]
+position = Vector2(24, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("7_2gnvv")
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["health"]]
+custom_minimum_size = Vector2(81, 42)
+layout_mode = 2
+text = "$Cost"
+label_settings = SubResource("LabelSettings_uce5i")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["health"]]
+custom_minimum_size = Vector2(134, 42)
+layout_mode = 2
+text = "+Amount"
+label_settings = SubResource("LabelSettings_6t7yc")
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["Buttons", "health"]]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_styles/normal = SubResource("StyleBoxFlat_abq1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4yrp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gco6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cq8eb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
+text = "Purchase"
+icon_alignment = 1
+
+[node name="Damage" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Damage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Damage
+"
+label_settings = SubResource("LabelSettings_gcxtd")
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Damage"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 98.0
+text = "Current"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Damage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer/Icon"]
+position = Vector2(24, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("8_xn0a8")
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["damage"]]
+custom_minimum_size = Vector2(81, 42)
+layout_mode = 2
+text = "$Cost"
+label_settings = SubResource("LabelSettings_uce5i")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["damage"]]
+custom_minimum_size = Vector2(134, 42)
+layout_mode = 2
+text = "+Amount"
+label_settings = SubResource("LabelSettings_6t7yc")
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["Buttons", "damage"]]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_styles/normal = SubResource("StyleBoxFlat_abq1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4yrp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gco6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cq8eb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
+text = "Purchase"
+icon_alignment = 1
+
+[node name="Speed" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Speed"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Speed"
+label_settings = SubResource("LabelSettings_bhsr7")
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Speed"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 98.0
+text = "Current"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Speed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer/Icon"]
+position = Vector2(24, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("9_kfcao")
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["speed"]]
+custom_minimum_size = Vector2(81, 42)
+layout_mode = 2
+text = "$Cost"
+label_settings = SubResource("LabelSettings_uce5i")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["speed"]]
+custom_minimum_size = Vector2(134, 42)
+layout_mode = 2
+text = "+Amount"
+label_settings = SubResource("LabelSettings_6t7yc")
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["Buttons", "speed"]]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_styles/normal = SubResource("StyleBoxFlat_abq1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4yrp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gco6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cq8eb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
+text = "Purchase"
+icon_alignment = 1
+
+[node name="Weapon Count" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Weapon Count
+"
+label_settings = SubResource("LabelSettings_ub6qk")
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 98.0
+text = "Current"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Weapon Count"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer/Icon"]
+position = Vector2(24, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("10_at1bt")
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["weapon count"]]
+custom_minimum_size = Vector2(81, 42)
+layout_mode = 2
+text = "$Cost"
+label_settings = SubResource("LabelSettings_uce5i")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["weapon count"]]
+custom_minimum_size = Vector2(134, 42)
+layout_mode = 2
+text = "+Amount"
+label_settings = SubResource("LabelSettings_6t7yc")
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["Buttons", "weapon count"]]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_styles/normal = SubResource("StyleBoxFlat_abq1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4yrp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gco6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cq8eb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
+text = "Purchase"
+icon_alignment = 1
+
+[node name="Shield" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Shield"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Shield"
+label_settings = SubResource("LabelSettings_sp1kf")
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Shield"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 98.0
+text = "Current"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Shield"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer/Icon"]
+position = Vector2(24, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("11_4l77f")
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["shield"]]
+custom_minimum_size = Vector2(81, 42)
+layout_mode = 2
+text = "$Cost"
+label_settings = SubResource("LabelSettings_uce5i")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["shield"]]
+custom_minimum_size = Vector2(134, 42)
+layout_mode = 2
+text = "+Amount"
+label_settings = SubResource("LabelSettings_6t7yc")
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["Buttons", "shield"]]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_styles/normal = SubResource("StyleBoxFlat_abq1w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4yrp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gco6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cq8eb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
+text = "Purchase"
+icon_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="NextButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 0
+offset_left = 1150.0
+offset_top = 627.0
+offset_right = 1262.0
+offset_bottom = 702.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_s8mek")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r84ea")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tm7qu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ojkyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85wm")
+text = "Next Level"
+icon_alignment = 1
+
+[node name="LevelSelectButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 0
+offset_left = 31.0
+offset_top = 627.0
+offset_right = 143.0
+offset_bottom = 702.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_s8mek")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r84ea")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tm7qu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ojkyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85wm")
+text = "Level Select"
+icon_alignment = 1
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Health" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_75jmb")
+bus = &"SFX"
+
+[node name="Damage" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_ba3k1")
+bus = &"SFX"
+
+[node name="Speed" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="WeaponCount" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="Shield" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 470.0
+offset_top = -701.0
+offset_right = 620.0
+offset_bottom = -651.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_001oc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rr8f0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lxyqr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bylqn")
+text = "Back
+"
+
+[node name="ResetUpgrades" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 627.0
+offset_right = 1274.0
+offset_bottom = 702.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.758192, 0.758192, 0.758192, 1)
+theme_override_colors/font_disabled_color = Color(0.658824, 0.658824, 0.658824, 0.572549)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_s8mek")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r84ea")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tm7qu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ojkyy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85wm")
+text = "Reset Upgrades"
+icon_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Health/HBoxContainer/PurchaseButton" to="." method="_on_health_purchase_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Damage/HBoxContainer/PurchaseButton" to="." method="_on_damage_purchase_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Speed/HBoxContainer/PurchaseButton" to="." method="_on_speed_purchase_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer/PurchaseButton" to="." method="_on_weapon_count_purchase_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Shield/HBoxContainer/PurchaseButton" to="." method="_on_shield_purchase_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_ship_upgrade_menu_back_button_pressed"]
+[connection signal="pressed" from="ResetUpgrades" to="." method="_on_reset_upgrades_pressed"]

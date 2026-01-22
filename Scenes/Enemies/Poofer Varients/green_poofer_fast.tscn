@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj5d6m6kpu6wk"]
+
+[ext_resource type="PackedScene" uid="uid://c20kaebtyhfvn" path="res://Scenes/Enemies/Poofer Varients/green_poofer.tscn" id="1_i18ek"]
+
+[node name="GreenPoofer" instance=ExtResource("1_i18ek")]
+SPEED = 100

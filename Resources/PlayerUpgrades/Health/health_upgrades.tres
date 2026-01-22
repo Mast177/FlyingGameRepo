@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ship_upgrades" load_steps=5 format=3 uid="uid://cip27l816fvh2"]
+
+[ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_xfe41"]
+[ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_apnf6"]
+[ext_resource type="Resource" uid="uid://dearch5p2sdp3" path="res://Resources/PlayerUpgrades/Health/health_1.tres" id="3_kv5es"]
+[ext_resource type="Resource" uid="uid://cqitmgx6cidpx" path="res://Resources/PlayerUpgrades/Health/health_2.tres" id="4_46cil"]
+
+[resource]
+script = ExtResource("1_xfe41")
+upgrade_name = "Health Upgrade"
+upgrade_list = Dictionary[int, ExtResource("2_apnf6")]({
+1: ExtResource("3_kv5es"),
+2: ExtResource("4_46cil")
+})
+metadata/_custom_type_script = "uid://c15n8qxt58obm"

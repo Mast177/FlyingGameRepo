@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://yflpl2hvnccs"]
+
+[ext_resource type="Script" uid="uid://del1b8g6lssq2" path="res://Assets/Transitions/wipe.gd" id="1_du3lc"]
+
+[node name="Wipe" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_du3lc")

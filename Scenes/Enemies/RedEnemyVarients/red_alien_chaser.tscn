@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2kv8cdg2plkm"]
+
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_wj5xi"]
+[ext_resource type="Script" uid="uid://c3o64tgr4g2rl" path="res://Assets/Scripts/EnemyScripts/RedAlien/red_alien_behavior.gd" id="2_emffi"]
+
+[node name="RedAlienChaser" instance=ExtResource("1_wj5xi")]
+script = ExtResource("2_emffi")
+SPEED = 110
+BEHAVIOR = "Follow"
+direction_change_interval = 3.0
+
+[node name="Hurtbox" parent="." index="1"]
+enable_friendly_fire = false

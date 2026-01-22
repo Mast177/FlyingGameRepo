@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0nrjwa7lvoif"]
+
+[ext_resource type="Script" uid="uid://b46kr3rysk8ph" path="res://Assets/Transitions/transition_button.gd" id="1_5lg8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lg8y"]
+bg_color = Color(1, 1, 1, 0.4627451)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.90588236, 0.16862746, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltw3j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og5v5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.66545343, 0.66105217, 0.4477496, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is1tu"]
+
+[node name="TransitionButton" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_5lg8y")
+next_scene = "res://Scenes/Menus/upgrade_menu.tscn"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0.90588236, 0.16862746, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lg8y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ltw3j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_og5v5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_is1tu")
+text = "Continue"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

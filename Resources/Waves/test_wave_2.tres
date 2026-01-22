@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://diawu7rteo3ng"]
+
+[ext_resource type="PackedScene" uid="uid://c20kaebtyhfvn" path="res://Scenes/Enemies/Poofer Varients/green_poofer.tscn" id="1_tu8oo"]
+[ext_resource type="Script" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_tc115"]
+
+[resource]
+script = ExtResource("2_tc115")
+enemy_wave = Array[PackedScene]([ExtResource("1_tu8oo"), ExtResource("1_tu8oo"), ExtResource("1_tu8oo"), ExtResource("1_tu8oo")])

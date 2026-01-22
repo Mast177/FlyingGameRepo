@@ -1,0 +1,154 @@
+[gd_scene load_steps=20 format=3 uid="uid://c20kaebtyhfvn"]
+
+[ext_resource type="Script" uid="uid://cdxe0vu80texu" path="res://Assets/Scripts/EnemyScripts/Poofer/poofer_behavior.gd" id="2_m56v5"]
+[ext_resource type="AudioStream" uid="uid://dney5c2mubyp6" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Forced Shutdown_HY_PC-003.wav" id="2_xhvn1"]
+[ext_resource type="Texture2D" uid="uid://cjy8l34th1mp" path="res://Assets/Sprites/Green_Poofer_Sheet.png" id="3_onhlh"]
+[ext_resource type="AnimationLibrary" uid="uid://tt2uhmgokssq" path="res://Assets/Animations/Poofer.res" id="4_ci3pa"]
+[ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="4_giocd"]
+[ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="5_u6k3w"]
+[ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="6_qi6jx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r355t"]
+atlas = ExtResource("3_onhlh")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmoka"]
+atlas = ExtResource("3_onhlh")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaabi"]
+atlas = ExtResource("3_onhlh")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq0ks"]
+atlas = ExtResource("3_onhlh")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj26l"]
+atlas = ExtResource("4_giocd")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsdjr"]
+atlas = ExtResource("3_onhlh")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnj8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r355t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmoka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaabi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq0ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj26l")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsdjr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_353mi"]
+radius = 18.0278
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfyu3"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r02jg"]
+radius = 26.0768
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f4q48"]
+
+[sub_resource type="Gradient" id="Gradient_jexqu"]
+colors = PackedColorArray(1, 1, 1, 1, 0.196078, 0.709804, 0, 0)
+
+[node name="GreenPoofer" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("2_m56v5")
+death_sfx = ExtResource("2_xhvn1")
+SCORE_VALUE = 300
+SPEED = 50
+HEALTH = 12
+BEHAVIOR = "Down"
+death = "Poofer/Death"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tnj8m")
+animation = &"Death"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"Poofer": ExtResource("4_ci3pa")
+}
+autoplay = "Idle"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+script = ExtResource("5_u6k3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_353mi")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Explosion"]]
+visible = false
+collision_layer = 3
+script = ExtResource("6_qi6jx")
+damage = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(1.5833334, 1.5833334)
+shape = SubResource("CircleShape2D_rfyu3")
+
+[node name="EdgeDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="EdgeDetectorShape" type="CollisionShape2D" parent="EdgeDetector"]
+shape = SubResource("CircleShape2D_r02jg")
+
+[node name="ZigzagTimer" type="Timer" parent="."]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+scale = Vector2(2.6, 2.6)
+shape = SubResource("CircleShape2D_f4q48")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 350.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color = Color(0.276865, 0.82383, 1.54018e-06, 1)
+color_ramp = SubResource("Gradient_jexqu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="EdgeDetector" to="." method="_on_edge_detector_body_entered"]
+[connection signal="timeout" from="ZigzagTimer" to="." method="_on_zigzag_timer_timeout"]
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_player_detector_area_entered"]
