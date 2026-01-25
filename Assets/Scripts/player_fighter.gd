@@ -10,6 +10,8 @@ class_name Player
 
 @export var shield := 0
 @export var shoot_cooldown : float = 0.1
+@export var shield_regen_time : float = 3.0
+@export var shield_stun_time : float = 5.0
 
 @onready var main = get_tree().get_first_node_in_group("main")
 @onready var projectile = load("res://Scenes/Projectiles/orange_projectile.tscn")
@@ -17,9 +19,11 @@ class_name Player
 var can_shoot = true
 var is_dead = false
 var shield_up = false
+var shield_regen_hp : int = 0
 
 var shield_max = shield
 @onready var shield_sprite = $AnimatedSprite2D/AnimatedSprite2DShield
+@onready var shield_timer = $ShieldRegenTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +38,8 @@ func _ready() -> void:
 	if shield_max > 0:
 		shield_up = true
 		shield_sprite.play("Shield_Start_Up")
-		
+	else:
+		shield_sprite.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,7 +69,8 @@ func update_stats():
 	shield = PlayerStats.current_shield
 
 func take_damage(damage_taken: int):
-	if shield > 0:
+	shield_timer.start(shield_stun_time)
+	if shield > 0 and shield_up:
 		if shield > damage_taken:
 			shield -= damage_taken
 			#play shield hit sfx
@@ -75,12 +81,15 @@ func take_damage(damage_taken: int):
 			shield = 0
 			print("shield downed!")
 			shield_sprite.play("Shield_Break")
+			shield_up = false
 			return
 		else:
 			damage_taken -= shield
 			shield_sprite.play("Shield_Break")
 			shield = 0
-
+			shield_up = false
+	
+	
 	health -= damage_taken
 	$AudioStreamPlayer.play()
 	$AudioStreamPlayer["parameters/switch_to_clip"] = "Hit"
@@ -144,10 +153,24 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_shield_regen_timer_timeout() -> void:
-	if shield < shield_max:
-		shield += 1
-	else:
-		shield_up = true
-	if shield_up:
-		shield_sprite.play("Shield_Start_Up")
-	print("Shield hp: " + str(shield) + " Shield_Up = " + str(shield_up))
+	#print("shield timer out")
+	shield_timer.start(shield_regen_time)
+	if shield >= shield_max:
+		print("Shield hp: " + str(shield) + " Shield_Up = " + str(shield_up))
+		return
+	if shield_max > 0:
+		#from here, assume that shield is always less than shield_max
+		if shield_up:
+			shield += 1
+			print("Shield hp: " + str(shield) + " Shield_Up = " + str(shield_up))
+			return
+		else:
+			shield_regen_hp += 1
+		if shield_regen_hp >= shield_max:
+			shield_regen_hp = 0
+			shield_up = true
+			shield = shield_max
+			shield_timer.stop()
+			shield_sprite.play("Shield_Start_Up")
+			print("Shield hp: " + str(shield) + " Shield_Up = " + str(shield_up))
+			return

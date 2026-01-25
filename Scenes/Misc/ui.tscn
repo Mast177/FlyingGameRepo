@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csag2ngl4aptr"]
+[gd_scene load_steps=15 format=3 uid="uid://csag2ngl4aptr"]
 
 [ext_resource type="PackedScene" uid="uid://dg1nt6es7spjx" path="res://Scenes/player_fighter.tscn" id="1_ss2b2"]
 [ext_resource type="Script" uid="uid://bls6e1gve5nru" path="res://Assets/Scripts/Menus/ui.gd" id="1_tgjfx"]
@@ -52,6 +52,29 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4fllt"]
+font_size = 47
+font_color = Color(0.17254902, 0.07058824, 1, 1)
+outline_size = 4
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sq67"]
+bg_color = Color(0.17254902, 0.07058824, 1, 1)
+skew = Vector2(-0.5, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2t3p"]
 bg_color = Color(0.470422, 0.437082, 0.48638, 1)
 border_width_left = 5
@@ -77,10 +100,11 @@ shadow_offset = Vector2(3, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3jy2"]
 size = Vector2(624, 80)
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "score_tally") groups=["UI"]]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "shield_bar", "score_tally") groups=["UI"]]
 process_mode = 3
 script = ExtResource("1_tgjfx")
 health_bar = NodePath("Control/HBoxContainer/Panel/HBoxContainer/HealthBar")
+shield_bar = NodePath("Control/HBoxContainer/Panel/HBoxContainer2/ShieldBar")
 score_tally = NodePath("Control/HBoxContainer/Panel4/Score/ScoreTally")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -122,9 +146,9 @@ shape = SubResource("RectangleShape2D_ipaai")
 top_level = true
 layout_mode = 0
 offset_left = 68.0
-offset_top = 281.0
+offset_top = 228.0
 offset_right = 248.0
-offset_bottom = 346.0
+offset_bottom = 293.0
 scale = Vector2(0.998889, 0.993757)
 theme_override_font_sizes/font_size = 0
 text = "HEALTH"
@@ -139,9 +163,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 15.0
-offset_top = -11.5
+offset_top = -64.5
 offset_right = 15.0
-offset_bottom = 11.5
+offset_bottom = -41.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.915897, 1.44)
@@ -154,6 +178,45 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_oyxbb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8dypb")
+value = 50.0
+show_percentage = false
+
+[node name="Shield" type="Label" parent="Control/HBoxContainer/Panel"]
+top_level = true
+layout_mode = 0
+offset_left = 68.0
+offset_top = 347.0
+offset_right = 248.0
+offset_bottom = 412.0
+scale = Vector2(0.998889, 0.993757)
+theme_override_font_sizes/font_size = 0
+text = "SHIELD"
+label_settings = SubResource("LabelSettings_4fllt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 15.000001
+offset_top = 54.0
+offset_right = 15.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.915897, 1.44)
+
+[node name="ShieldBar" type="ProgressBar" parent="Control/HBoxContainer/Panel/HBoxContainer2"]
+z_index = 3
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_oyxbb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3sq67")
 value = 50.0
 show_percentage = false
 
