@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dg1nt6es7spjx"]
+[gd_scene load_steps=86 format=3 uid="uid://dg1nt6es7spjx"]
 
 [ext_resource type="Script" uid="uid://k1rtse2acqwh" path="res://Assets/Scripts/player_fighter.gd" id="1_rv7do"]
 [ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="2_jax0v"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://cj4pjgg1mbnen" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Forced Interruption_HY_PC-001.wav" id="6_e3opi"]
 [ext_resource type="Texture2D" uid="uid://c3eprjl0qbcxm" path="res://Assets/Sprites/Shield_Start_Up_Sheett.png" id="6_qryms"]
 [ext_resource type="AudioStream" uid="uid://bvlkg77g6wk8r" path="res://Assets/Audio/SFX/DSGNMisc_SKILL RELEASE-Skipping Impact_HY_PC-002.wav" id="7_lc2o7"]
+[ext_resource type="AudioStream" uid="uid://dsfr63qasbyod" path="res://Assets/Audio/SFX/DSGNSynth_CAST-Mecha Energy Movement_HY_PC-007.wav" id="11_qryms"]
+[ext_resource type="AudioStream" uid="uid://b4soer5efutu6" path="res://Assets/Audio/SFX/DSGNTonl_MOVEMENT-Arcane Slap_HY_PC-002.wav" id="12_iavdn"]
+[ext_resource type="AudioStream" uid="uid://bgaaydhdopxei" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav" id="13_iavdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oscqj"]
 atlas = ExtResource("2_jax0v")
@@ -606,13 +609,22 @@ radius = 5.0
 height = 24.0
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_6sek4"]
-clip_count = 2
+clip_count = 5
 clip_0/name = &"Death"
 clip_0/stream = ExtResource("6_e3opi")
 clip_0/auto_advance = 0
 clip_1/name = &"Hit"
 clip_1/stream = ExtResource("7_lc2o7")
 clip_1/auto_advance = 0
+clip_2/name = &"Shield Regen"
+clip_2/stream = ExtResource("11_qryms")
+clip_2/auto_advance = 0
+clip_3/name = &"Shield Hit"
+clip_3/stream = ExtResource("12_iavdn")
+clip_3/auto_advance = 0
+clip_4/name = &"Shield Break"
+clip_4/stream = ExtResource("13_iavdn")
+clip_4/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1.0,

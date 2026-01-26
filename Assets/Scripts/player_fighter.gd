@@ -69,30 +69,39 @@ func update_stats():
 	shield = PlayerStats.current_shield
 
 func take_damage(damage_taken: int):
+	var shield_broken := false		#bool used to make sure hit sfx doesn't play when
+									#shield is broken
 	shield_timer.start(shield_stun_time)
+	$AudioStreamPlayer.play()
 	if shield > 0 and shield_up:
 		if shield > damage_taken:
 			shield -= damage_taken
 			#play shield hit sfx
 			print("shield damaged!" + str(shield))
 			shield_sprite.play("Shield_Hit")
+			$AudioStreamPlayer["parameters/switch_to_clip"] ="Shield Hit"
+			#$AudioStreamPlayer["parameters/switch_to_clip"]  = ""
 			return
 		elif shield == damage_taken:
 			shield = 0
 			print("shield downed!")
 			shield_sprite.play("Shield_Break")
+			$AudioStreamPlayer["parameters/switch_to_clip"] = "Shield Break"
 			shield_up = false
 			return
 		else:
 			damage_taken -= shield
 			shield_sprite.play("Shield_Break")
+			$AudioStreamPlayer["parameters/switch_to_clip"] = "Shield Break"
 			shield = 0
 			shield_up = false
+			shield_broken = true
 	
 	
 	health -= damage_taken
-	$AudioStreamPlayer.play()
-	$AudioStreamPlayer["parameters/switch_to_clip"] = "Hit"
+	
+	if !shield_broken:
+		$AudioStreamPlayer["parameters/switch_to_clip"] = "Hit"
 	print(health)
 	if health <= 0:
 		is_dead = true
@@ -172,5 +181,6 @@ func _on_shield_regen_timer_timeout() -> void:
 			shield = shield_max
 			shield_timer.stop()
 			shield_sprite.play("Shield_Start_Up")
+			$AudioStreamPlayer["parameters/switch_to_clip"] = "Shield Regen"
 			print("Shield hp: " + str(shield) + " Shield_Up = " + str(shield_up))
 			return

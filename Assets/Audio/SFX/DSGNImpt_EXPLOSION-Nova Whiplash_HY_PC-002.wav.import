@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgaaydhdopxei"
+path="res://.godot/imported/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav-c1179d24839e31168efbef351bdee7f8.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav"
+dest_files=["res://.godot/imported/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav-c1179d24839e31168efbef351bdee7f8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
