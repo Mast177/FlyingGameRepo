@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmq8f6ackf8o6"]
+[gd_scene format=3 uid="uid://cmq8f6ackf8o6"]
 
 [ext_resource type="Script" uid="uid://dctm1upe6ov3h" path="res://Assets/Scripts/ManagerScripts/game_over.gd" id="1_wx7lh"]
 [ext_resource type="Shader" uid="uid://3ifdjr2umqou" path="res://Assets/Shaders/wave_text.gdshader" id="2_iayyr"]
@@ -13,16 +13,25 @@ shader_parameter/frequency = 15.0
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-cache/0/75/0/ascent = 0.0
-cache/0/75/0/descent = 0.0
-cache/0/75/0/underline_position = 0.0
-cache/0/75/0/underline_thickness = 0.0
-cache/0/75/0/scale = 1.0
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/75/0/ascent = 0.0
+cache/0/75/0/descent = 0.0
+cache/0/75/0/underline_position = 0.0
+cache/0/75/0/underline_thickness = 0.0
+cache/0/75/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxg8r"]
 font = SubResource("FontFile_fcenq")
@@ -332,6 +341,15 @@ shader_parameter/frequency = 5.0
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -363,17 +381,17 @@ shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3, 1)
 
-[node name="Game_Over" type="Control"]
-top_level = true
+[node name="Game_Over" type="Control" unique_id=1848511701]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_wx7lh")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1983241612]
 material = SubResource("ShaderMaterial_8mf5n")
 layout_mode = 1
 anchors_preset = 8
@@ -391,7 +409,7 @@ text = "Game Over!"
 label_settings = SubResource("LabelSettings_nxg8r")
 horizontal_alignment = 1
 
-[node name="RetryButton" type="Button" parent="Label"]
+[node name="RetryButton" type="Button" parent="Label" unique_id=2050246350]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -416,7 +434,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_swars")
 text = "Retry"
 script = SubResource("GDScript_7da05")
 
-[node name="QuitButton" type="Button" parent="Label"]
+[node name="QuitButton" type="Button" parent="Label" unique_id=1093440188]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -443,14 +461,12 @@ text = "Quit
 script = SubResource("GDScript_x1w77")
 next_scene = "res://Scenes/Menus/main_menu_levels_first.tscn"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bncdx")
-}
-autoplay = "no_show_complete"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2087567820]
+libraries/ = SubResource("AnimationLibrary_bncdx")
+autoplay = &"no_show_complete"
 next/show_complete = &"show_button"
 
-[node name="NewHighScore" type="Label" parent="."]
+[node name="NewHighScore" type="Label" parent="." unique_id=568969375]
 visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_2jdn0")
@@ -470,7 +486,7 @@ text = "New Highscore!"
 label_settings = SubResource("LabelSettings_ky7wy")
 horizontal_alignment = 1
 
-[node name="Highscore" type="Label" parent="NewHighScore"]
+[node name="Highscore" type="Label" parent="NewHighScore" unique_id=2038000721]
 visible = false
 layout_mode = 1
 anchors_preset = 7

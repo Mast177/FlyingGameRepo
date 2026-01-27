@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rdpq2s2x58ml"]
+[gd_scene format=3 uid="uid://rdpq2s2x58ml"]
 
 [ext_resource type="Shader" uid="uid://3ifdjr2umqou" path="res://Assets/Shaders/wave_text.gdshader" id="1_kg0u8"]
 [ext_resource type="Script" uid="uid://c14afb3jim5oi" path="res://Assets/Scripts/ManagerScripts/level_complete.gd" id="1_ufmrs"]
@@ -14,16 +14,25 @@ shader_parameter/frequency = 15.0
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-cache/0/75/0/ascent = 0.0
-cache/0/75/0/descent = 0.0
-cache/0/75/0/underline_position = 0.0
-cache/0/75/0/underline_thickness = 0.0
-cache/0/75/0/scale = 1.0
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/75/0/ascent = 0.0
+cache/0/75/0/descent = 0.0
+cache/0/75/0/underline_position = 0.0
+cache/0/75/0/underline_thickness = 0.0
+cache/0/75/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ij7qk"]
 font = SubResource("FontFile_fcenq")
@@ -305,6 +314,15 @@ shader_parameter/frequency = 5.0
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -336,7 +354,7 @@ shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3, 1)
 
-[node name="Level_Complete" type="Control"]
+[node name="Level_Complete" type="Control" unique_id=504223866]
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -344,9 +362,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_ufmrs")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1095431435]
 material = SubResource("ShaderMaterial_8mf5n")
 layout_mode = 1
 anchors_preset = 8
@@ -364,8 +383,9 @@ text = "Level Complete!"
 label_settings = SubResource("LabelSettings_ij7qk")
 horizontal_alignment = 1
 
-[node name="TransitionButton" parent="Label" instance=ExtResource("3_5m7ny")]
+[node name="TransitionButton" parent="Label" unique_id=735189679 instance=ExtResource("3_5m7ny")]
 visible = false
+z_index = 10
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -375,16 +395,15 @@ anchor_bottom = 1.0
 offset_top = 39.0
 offset_bottom = 39.0
 grow_vertical = 0
+mouse_behavior_recursive = 2
 transition_type = "pixelate"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bncdx")
-}
-autoplay = "no_show_complete"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=836172715]
+libraries/ = SubResource("AnimationLibrary_bncdx")
+autoplay = &"no_show_complete"
 next/show_complete = &"show_button"
 
-[node name="NewHighScore" type="Label" parent="."]
+[node name="NewHighScore" type="Label" parent="." unique_id=788358429]
 visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_2jdn0")
@@ -404,7 +423,7 @@ text = "New Highscore!"
 label_settings = SubResource("LabelSettings_ky7wy")
 horizontal_alignment = 1
 
-[node name="Highscore" type="Label" parent="NewHighScore"]
+[node name="Highscore" type="Label" parent="NewHighScore" unique_id=1028361308]
 visible = false
 layout_mode = 1
 anchors_preset = 7

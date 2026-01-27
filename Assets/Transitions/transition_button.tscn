@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0nrjwa7lvoif"]
+[gd_scene format=3 uid="uid://d0nrjwa7lvoif"]
 
 [ext_resource type="Script" uid="uid://b46kr3rysk8ph" path="res://Assets/Transitions/transition_button.gd" id="1_5lg8y"]
 
@@ -40,15 +40,16 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is1tu"]
 
-[node name="TransitionButton" type="Control"]
+[node name="TransitionButton" type="Control" unique_id=841331362]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+mouse_filter = 1
 script = ExtResource("1_5lg8y")
 next_scene = "res://Scenes/Menus/upgrade_menu.tscn"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=685519797]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 offset_left = -100.0

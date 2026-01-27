@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://csag2ngl4aptr"]
+[gd_scene format=3 uid="uid://csag2ngl4aptr"]
 
 [ext_resource type="PackedScene" uid="uid://dg1nt6es7spjx" path="res://Scenes/player_fighter.tscn" id="1_ss2b2"]
 [ext_resource type="Script" uid="uid://bls6e1gve5nru" path="res://Assets/Scripts/Menus/ui.gd" id="1_tgjfx"]
@@ -100,49 +100,51 @@ shadow_offset = Vector2(3, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3jy2"]
 size = Vector2(624, 80)
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "shield_bar", "score_tally") groups=["UI"]]
+[node name="UI" type="CanvasLayer" unique_id=1227684911 node_paths=PackedStringArray("health_bar", "shield_bar", "score_tally") groups=["UI"]]
 process_mode = 3
 script = ExtResource("1_tgjfx")
 health_bar = NodePath("Control/HBoxContainer/Panel/HBoxContainer/HealthBar")
 shield_bar = NodePath("Control/HBoxContainer/Panel/HBoxContainer2/ShieldBar")
 score_tally = NodePath("Control/HBoxContainer/Panel4/Score/ScoreTally")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=163836640]
 position = Vector2(0, 2)
 anchor_mode = 0
 
-[node name="PlayerFighter" parent="." instance=ExtResource("1_ss2b2")]
+[node name="PlayerFighter" parent="." unique_id=470294074 instance=ExtResource("1_ss2b2")]
 position = Vector2(628, 326)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=371201411]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=905270348]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Control/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Control/HBoxContainer" unique_id=1264053411]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ga7j")
 
-[node name="BoundingBoxLeft" type="StaticBody2D" parent="Control/HBoxContainer/Panel" groups=["Edge"]]
+[node name="BoundingBoxLeft" type="StaticBody2D" parent="Control/HBoxContainer/Panel" unique_id=1780642501 groups=["Edge"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel/BoundingBoxLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel/BoundingBoxLeft" unique_id=974712071]
 visible = false
 position = Vector2(158.25, 362.5)
 shape = SubResource("RectangleShape2D_ipaai")
 
-[node name="Health" type="Label" parent="Control/HBoxContainer/Panel"]
+[node name="Health" type="Label" parent="Control/HBoxContainer/Panel" unique_id=1187882203]
 top_level = true
 layout_mode = 0
 offset_left = 68.0
@@ -156,7 +158,7 @@ label_settings = SubResource("LabelSettings_5xqjw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/Panel" unique_id=2138361780]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -170,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.915897, 1.44)
 
-[node name="HealthBar" type="ProgressBar" parent="Control/HBoxContainer/Panel/HBoxContainer"]
+[node name="HealthBar" type="ProgressBar" parent="Control/HBoxContainer/Panel/HBoxContainer" unique_id=515647445]
 z_index = 3
 z_as_relative = false
 layout_mode = 2
@@ -181,7 +183,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_8dypb")
 value = 50.0
 show_percentage = false
 
-[node name="Shield" type="Label" parent="Control/HBoxContainer/Panel"]
+[node name="Shield" type="Label" parent="Control/HBoxContainer/Panel" unique_id=1174983896]
 top_level = true
 layout_mode = 0
 offset_left = 68.0
@@ -195,7 +197,7 @@ label_settings = SubResource("LabelSettings_4fllt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/HBoxContainer/Panel"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/HBoxContainer/Panel" unique_id=960588111]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -209,7 +211,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.915897, 1.44)
 
-[node name="ShieldBar" type="ProgressBar" parent="Control/HBoxContainer/Panel/HBoxContainer2"]
+[node name="ShieldBar" type="ProgressBar" parent="Control/HBoxContainer/Panel/HBoxContainer2" unique_id=283050117]
 z_index = 3
 z_as_relative = false
 layout_mode = 2
@@ -220,29 +222,31 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3sq67")
 value = 50.0
 show_percentage = false
 
-[node name="Panel2" type="Panel" parent="Control/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="Control/HBoxContainer" unique_id=15546588]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
+[node name="Panel3" type="Panel" parent="Control/HBoxContainer" unique_id=1005835420]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="Panel4" type="Panel" parent="Control/HBoxContainer"]
+[node name="Panel4" type="Panel" parent="Control/HBoxContainer" unique_id=186103980]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_v2t3p")
 
-[node name="BoundingBoxRight" type="StaticBody2D" parent="Control/HBoxContainer/Panel4" groups=["Edge"]]
+[node name="BoundingBoxRight" type="StaticBody2D" parent="Control/HBoxContainer/Panel4" unique_id=1633864038 groups=["Edge"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel4/BoundingBoxRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel4/BoundingBoxRight" unique_id=894574127]
 visible = false
 position = Vector2(160, 358)
 shape = SubResource("RectangleShape2D_ipaai")
 
-[node name="Score" type="Label" parent="Control/HBoxContainer/Panel4"]
+[node name="Score" type="Label" parent="Control/HBoxContainer/Panel4" unique_id=893760033]
 top_level = true
 layout_mode = 0
 offset_left = 1032.0
@@ -256,7 +260,7 @@ label_settings = SubResource("LabelSettings_qmjtg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreTally" type="Label" parent="Control/HBoxContainer/Panel4/Score"]
+[node name="ScoreTally" type="Label" parent="Control/HBoxContainer/Panel4/Score" unique_id=1497335785]
 layout_mode = 0
 offset_left = -19.0211
 offset_top = 66.4146
@@ -266,23 +270,23 @@ text = "0000000000000000"
 label_settings = SubResource("LabelSettings_wxe7p")
 horizontal_alignment = 2
 
-[node name="BoundingBoxTop" type="StaticBody2D" parent="Control"]
+[node name="BoundingBoxTop" type="StaticBody2D" parent="Control" unique_id=2047990062]
 position = Vector2(525, -57)
 scale = Vector2(1.48, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/BoundingBoxTop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/BoundingBoxTop" unique_id=130573827]
 position = Vector2(50, 16)
 shape = SubResource("RectangleShape2D_q3jy2")
 
-[node name="BoundingBoxBottom" type="StaticBody2D" parent="Control"]
+[node name="BoundingBoxBottom" type="StaticBody2D" parent="Control" unique_id=1567795344]
 position = Vector2(531, 743)
 scale = Vector2(1.72, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/BoundingBoxBottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/BoundingBoxBottom" unique_id=892430065]
 position = Vector2(50, 16)
 shape = SubResource("RectangleShape2D_q3jy2")
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_4fllt")]
+[node name="PauseMenu" parent="." unique_id=762341768 instance=ExtResource("3_4fllt")]
 process_priority = 1
 physics_interpolation_mode = 0
 z_index = 10

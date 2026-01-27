@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3dv0g0y77okd"]
+[gd_scene format=3 uid="uid://b3dv0g0y77okd"]
 
 [ext_resource type="Script" uid="uid://br8p0semvj353" path="res://Assets/Scripts/ManagerScripts/level_script.gd" id="1_t6dks"]
 [ext_resource type="PackedScene" uid="uid://csag2ngl4aptr" path="res://Scenes/Misc/ui.tscn" id="2_1uwe2"]
@@ -28,26 +28,28 @@ Vector2i(0, 1): {
 }
 }
 
-[node name="Level" type="Node2D" groups=["main"]]
+[node name="Level" type="Node2D" unique_id=927278689 groups=["main"]]
 script = ExtResource("1_t6dks")
 
-[node name="UI" parent="." instance=ExtResource("2_1uwe2")]
+[node name="UI" parent="." unique_id=1624583402 instance=ExtResource("2_1uwe2")]
 
-[node name="Level_Complete" parent="UI" instance=ExtResource("3_3vcfl")]
+[node name="Level_Complete" parent="UI" unique_id=32761183 instance=ExtResource("3_3vcfl")]
+mouse_filter = 2
 
-[node name="Game_Over" parent="UI" instance=ExtResource("4_ouscj")]
+[node name="Game_Over" parent="UI" unique_id=857819586 instance=ExtResource("4_ouscj")]
+mouse_filter = 2
 
-[node name="EnemyWaveSpawner" parent="." instance=ExtResource("3_oo65s")]
+[node name="EnemyWaveSpawner" parent="." unique_id=2035115739 instance=ExtResource("3_oo65s")]
 position = Vector2(643, -24)
 waves = Array[ExtResource("4_cjn6a")]([ExtResource("5_kbs4g")])
 wave_cooldown = 5.0
 spawn_interval = 1.0
 SPAWN_BEHAVIOR = "Spawn One"
 
-[node name="KillBox" parent="." instance=ExtResource("6_mrmml")]
+[node name="KillBox" parent="." unique_id=1277528029 instance=ExtResource("6_mrmml")]
 position = Vector2(641, 850)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=388864161]
 stream = SubResource("AudioStreamInteractive_ouscj")
 autoplay = true
 bus = &"Music"
