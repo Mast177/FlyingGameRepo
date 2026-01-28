@@ -29,6 +29,7 @@ var shield_max = shield
 func _ready() -> void:
 	await get_tree().process_frame
 	update_stats()
+	update_weapon_sources(weapon_count)
 	shield_max = shield
 	print("Health: " + str(health))
 	print("Speed: " + str(MOVEMENT_SPEED))
@@ -60,6 +61,21 @@ func _physics_process(_delta: float) -> void:
 		return
 	velocity = input_vector * MOVEMENT_SPEED
 	move_and_slide()
+
+func update_weapon_sources(count: int):
+	match count:
+		1:	#enable nose weapon
+			$ProjectileSources/ProjectileSourceNose.enabled = true
+			$ProjectileSources/ProjectileSourceWingL.enabled = false
+			$ProjectileSources/ProjectileSourceWingR.enabled = false
+		2:	#enable wing weapons
+			$ProjectileSources/ProjectileSourceNose.enabled = false
+			$ProjectileSources/ProjectileSourceWingL.enabled = true
+			$ProjectileSources/ProjectileSourceWingR.enabled = true
+		3:	#enable wing and nose weapons
+			$ProjectileSources/ProjectileSourceNose.enabled = true
+			$ProjectileSources/ProjectileSourceWingL.enabled = true
+			$ProjectileSources/ProjectileSourceWingR.enabled = true
 
 func update_stats():
 	health = PlayerStats.current_health
@@ -135,14 +151,16 @@ func shoot():
 	if is_dead:
 		return
 	#spawn in projectile
-	var instance = projectile.instantiate()
-	instance.dir = rotation
-	instance.spawnPos = $ProjectileSource.global_position
-	instance.spawnRot = rotation
-	instance.z_index = (player.z_index -1)
-	instance.damage = damage
-	instance.add_to_group("player_projectiles")
-	main.add_child.call_deferred(instance)
+	for source in get_tree().get_nodes_in_group("projectile_sources"):
+		if source.enabled:
+			var instance = projectile.instantiate()
+			instance.dir = rotation
+			instance.spawnPos = source.global_position
+			instance.spawnRot = rotation
+			instance.z_index = (player.z_index -1)
+			instance.damage = damage
+			instance.add_to_group("player_projectiles")
+			main.add_child.call_deferred(instance)
 	
 	#start weapon cooldown timer
 	can_shoot = false

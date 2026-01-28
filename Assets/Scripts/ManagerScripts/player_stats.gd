@@ -3,7 +3,7 @@ extends Node
 var default_health : int = 10
 var default_speed : int = 200
 var default_damage : int = 2
-var default_weapon_count : int = 1
+var default_weapon_count : int = 2
 var default_shield : int = 5
 
 var current_health : int

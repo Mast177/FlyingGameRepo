@@ -50,7 +50,7 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	print("button 3 pressed")
+	SceneTransitionController.change_scene("res://Scenes/Levels/level_3.tscn", transition_type, transition_duration)
 
 
 func _on_button_4_pressed() -> void:

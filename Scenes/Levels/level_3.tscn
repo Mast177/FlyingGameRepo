@@ -8,10 +8,10 @@
 [ext_resource type="Resource" uid="uid://cmmeip4o3yx4p" path="res://Resources/Waves/Level_3_Waves/3_4.tres" id="6_dl55b"]
 
 [node name="Level" unique_id=1766582414 instance=ExtResource("1_us8ef")]
+level_number = 3
 
 [node name="UI" parent="." index="0" unique_id=1624583402]
 process_mode = 0
 
 [node name="EnemyWaveSpawner" parent="." index="1" unique_id=2035115739]
-level_number = 3
 waves = Array[ExtResource("2_yy6i0")]([ExtResource("3_167vu"), ExtResource("4_x1k1j"), ExtResource("5_4ahh4"), ExtResource("6_dl55b")])

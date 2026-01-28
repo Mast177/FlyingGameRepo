@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://diypf3n08kgdi"]
+[gd_scene format=3 uid="uid://diypf3n08kgdi"]
 
 [ext_resource type="Script" uid="uid://03jsa20fak2f" path="res://Assets/Scripts/Menus/level_select.gd" id="1_2sh00"]
 
@@ -40,7 +40,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twp72"]
 
-[node name="LevelSelect" type="Control"]
+[node name="LevelSelect" type="Control" unique_id=34900715]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2sh00")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1636611407]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,11 +61,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1561776931]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=672484197]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -76,15 +76,15 @@ text = "Level Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=95303937]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1731287715]
 layout_mode = 2
 
-[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["level_buttons"]]
+[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=495554965 groups=["level_buttons"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_02tgw")
@@ -93,14 +93,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "1"
 
-[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["level_highscore_labels"]]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=199933784 groups=["level_highscore_labels"]]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2104020072]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" groups=["level_buttons"]]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=348063025 groups=["level_buttons"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_02tgw")
@@ -109,14 +109,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "2"
 
-[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" groups=["level_highscore_labels"]]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2078902249 groups=["level_highscore_labels"]]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1587507331]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" groups=["level_buttons"]]
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1101274705 groups=["level_buttons"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_02tgw")
@@ -125,14 +125,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "3"
 
-[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" groups=["level_highscore_labels"]]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1525791020 groups=["level_highscore_labels"]]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1783350041]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" groups=["level_buttons"]]
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=628891993 groups=["level_buttons"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_02tgw")
@@ -141,14 +141,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "4"
 
-[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" groups=["level_highscore_labels"]]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1634872276 groups=["level_highscore_labels"]]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=716190996]
 layout_mode = 2
 
-[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer5" groups=["level_buttons"]]
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer5" unique_id=9704437 groups=["level_buttons"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_02tgw")
@@ -157,11 +157,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "5"
 
-[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer5" groups=["level_highscore_labels"]]
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer5" unique_id=634662495 groups=["level_highscore_labels"]]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=698737596]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 0
 offset_left = 12.0
@@ -174,7 +174,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kh0xv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twp72")
 text = "Back"
 
-[node name="ShipMenuButton" type="Button" parent="."]
+[node name="ShipMenuButton" type="Button" parent="." unique_id=1290333925]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 1
 anchors_preset = 7

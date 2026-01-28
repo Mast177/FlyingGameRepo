@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dg1nt6es7spjx"]
+[gd_scene format=3 uid="uid://dg1nt6es7spjx"]
 
 [ext_resource type="Script" uid="uid://k1rtse2acqwh" path="res://Assets/Scripts/player_fighter.gd" id="1_rv7do"]
 [ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="2_jax0v"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dsfr63qasbyod" path="res://Assets/Audio/SFX/DSGNSynth_CAST-Mecha Energy Movement_HY_PC-007.wav" id="11_qryms"]
 [ext_resource type="AudioStream" uid="uid://b4soer5efutu6" path="res://Assets/Audio/SFX/DSGNTonl_MOVEMENT-Arcane Slap_HY_PC-002.wav" id="12_iavdn"]
 [ext_resource type="AudioStream" uid="uid://bgaaydhdopxei" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav" id="13_iavdn"]
+[ext_resource type="Script" uid="uid://iuphjr0fx80b" path="res://Assets/Scripts/projectile_source.gd" id="14_7veex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oscqj"]
 atlas = ExtResource("2_jax0v")
@@ -636,7 +637,7 @@ Vector2i(-1, -1): {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xt1ak"]
 
-[node name="PlayerFighter" type="CharacterBody2D" node_paths=PackedStringArray("player", "anim") groups=["player"]]
+[node name="PlayerFighter" type="CharacterBody2D" unique_id=1062630222 node_paths=PackedStringArray("player", "anim") groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_rv7do")
 player = NodePath(".")
@@ -644,11 +645,11 @@ anim = NodePath("AnimatedSprite2D/AnimationPlayer")
 MOVEMENT_SPEED = 200
 shoot_cooldown = 0.25
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=298118502]
 sprite_frames = SubResource("SpriteFrames_h3fgs")
 animation = &"Level"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=1961497853]
 show_behind_parent = true
 position = Vector2(5, 14)
 amount = 7
@@ -659,7 +660,7 @@ trail_sections = 5
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_pa1ke")
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="AnimatedSprite2D"]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="AnimatedSprite2D" unique_id=525260384]
 show_behind_parent = true
 position = Vector2(-5, 14)
 amount = 7
@@ -670,46 +671,56 @@ trail_sections = 5
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_pa1ke")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_xd1su")
-}
-autoplay = "Level"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=835357512]
+libraries/ = SubResource("AnimationLibrary_xd1su")
+autoplay = &"Level"
 
-[node name="AnimatedSprite2DShield" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+[node name="AnimatedSprite2DShield" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=214190039]
+visible = false
 sprite_frames = SubResource("SpriteFrames_52b4d")
 animation = &"Shield_Break"
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000904818]
 script = ExtResource("4_lkald")
 damage = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2022152691]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_afubs")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1298887278]
 position = Vector2(0, 4)
 script = ExtResource("3_0q0ov")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=541083861]
 shape = SubResource("CapsuleShape2D_afubs")
 
-[node name="ProjectileSource" type="Node2D" parent="."]
-position = Vector2(-3, -15)
-
-[node name="ShootCooldownTimer" type="Timer" parent="."]
+[node name="ShootCooldownTimer" type="Timer" parent="." unique_id=165841477]
 wait_time = 0.097
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1219860973]
 stream = SubResource("AudioStreamInteractive_6sek4")
 bus = &"SFX"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=164653346]
 shape = SubResource("CircleShape2D_xt1ak")
 
-[node name="ShieldRegenTimer" type="Timer" parent="."]
+[node name="ShieldRegenTimer" type="Timer" parent="." unique_id=410071624]
 wait_time = 2.0
+
+[node name="ProjectileSources" type="Node2D" parent="." unique_id=331504934]
+
+[node name="ProjectileSourceNose" type="Node2D" parent="ProjectileSources" unique_id=447205814 groups=["projectile_sources"]]
+position = Vector2(0, -15)
+script = ExtResource("14_7veex")
+
+[node name="ProjectileSourceWingL" type="Node2D" parent="ProjectileSources" unique_id=304826735 groups=["projectile_sources"]]
+position = Vector2(-23, 11)
+script = ExtResource("14_7veex")
+
+[node name="ProjectileSourceWingR" type="Node2D" parent="ProjectileSources" unique_id=575333804 groups=["projectile_sources"]]
+position = Vector2(23, 11)
+script = ExtResource("14_7veex")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="ShootCooldownTimer" to="." method="_on_shoot_cooldown_timer_timeout"]

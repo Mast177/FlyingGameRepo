@@ -37,7 +37,6 @@ script = ExtResource("1_t6dks")
 mouse_filter = 2
 
 [node name="Game_Over" parent="UI" unique_id=857819586 instance=ExtResource("4_ouscj")]
-mouse_filter = 2
 
 [node name="EnemyWaveSpawner" parent="." unique_id=2035115739 instance=ExtResource("3_oo65s")]
 position = Vector2(643, -24)

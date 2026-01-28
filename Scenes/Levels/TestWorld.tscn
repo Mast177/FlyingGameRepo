@@ -1,21 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkcxmspqbaie4"]
+[gd_scene format=3 uid="uid://bkcxmspqbaie4"]
 
+[ext_resource type="Script" uid="uid://br8p0semvj353" path="res://Assets/Scripts/ManagerScripts/level_script.gd" id="1_rn6dn"]
 [ext_resource type="PackedScene" uid="uid://csag2ngl4aptr" path="res://Scenes/Misc/ui.tscn" id="2_0gujh"]
 [ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="3_crfra"]
 [ext_resource type="PackedScene" uid="uid://dm81kmusre1gt" path="res://Scenes/Misc/enemy_wave_spawner.tscn" id="3_tccis"]
 [ext_resource type="PackedScene" uid="uid://bqgqxegjy55wu" path="res://Scenes/Misc/kill_box.tscn" id="4_0u1o3"]
 [ext_resource type="Resource" uid="uid://litrjhmkcps6" path="res://Resources/Waves/test_wave_1.tres" id="4_rn6dn"]
 
-[node name="Node2D" type="Node2D" groups=["main"]]
+[node name="Node2D" type="Node2D" unique_id=90497424 groups=["main"]]
+script = ExtResource("1_rn6dn")
 
-[node name="UI" parent="." instance=ExtResource("2_0gujh")]
+[node name="UI" parent="." unique_id=1940279875 instance=ExtResource("2_0gujh")]
 
-[node name="EnemyWaveSpawner" parent="." instance=ExtResource("3_tccis")]
+[node name="EnemyWaveSpawner" parent="." unique_id=793746991 instance=ExtResource("3_tccis")]
 position = Vector2(643, -24)
 waves = Array[ExtResource("3_crfra")]([ExtResource("4_rn6dn")])
 wave_cooldown = 5.0
 spawn_interval = 1.0
 SPAWN_BEHAVIOR = "Spawn One"
 
-[node name="KillBox" parent="." instance=ExtResource("4_0u1o3")]
+[node name="KillBox" parent="." unique_id=2014912643 instance=ExtResource("4_0u1o3")]
 position = Vector2(641, 850)

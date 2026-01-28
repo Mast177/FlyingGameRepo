@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var level_number := 1
-
 @export var waves : Array[Wave]
 @export_group("Wave Timing")
 @export var wave_cooldown : float = 10.0	## time between waves
@@ -22,12 +20,6 @@ var current_wave_num := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	##
-	## set game_manager current level
-	##
-	GameManager.current_level = level_number
-	
-	
 	##
 	## add all spawnpoints to the array of spawnpoints
 	##
@@ -205,7 +197,7 @@ func get_spawnpoint(i : int = 0):
 func _on_wave_cooldown_timer_timeout() -> void:
 	current_wave_num += 1
 	if current_wave_num >= waves.size():
-		SignalBus.emit_signal("waves_finished", level_number)
+		SignalBus.emit_signal("waves_finished", main.level_number)
 		$WaveCooldownTimer.stop()
 	else:
 		#set spawning parameters for next wave
