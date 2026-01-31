@@ -1,12 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://ddjcdkwqtljxw"]
+[gd_scene format=3 uid="uid://ddjcdkwqtljxw"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/EnemyScripts/OrangeShooter/orange_shooter_behavior.gd" id="2_c5i5r"]
+[ext_resource type="Script" uid="uid://d4g3ltgkdefjt" path="res://Assets/Scripts/EnemyScripts/OrangeShooter/orange_shooter_behavior.gd" id="2_c5i5r"]
 [ext_resource type="Texture2D" uid="uid://csj8m7otg24y6" path="res://Assets/Sprites/Orange_Shooter_Sheet.png" id="3_mr68r"]
 [ext_resource type="PackedScene" uid="uid://d7j8pt3ftecq" path="res://Scenes/Projectiles/yellow_projectile.tscn" id="3_t0vgv"]
 [ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="4_eca5o"]
 [ext_resource type="AnimationLibrary" uid="uid://cxhbwwmo76c6t" path="res://Assets/Animations/Shooter.res" id="5_h64h8"]
-[ext_resource type="Script" path="res://Assets/Scripts/hurtbox.gd" id="6_no1ee"]
-[ext_resource type="Script" path="res://Assets/Scripts/hitbox.gd" id="7_1a0ln"]
+[ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="6_no1ee"]
+[ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="7_1a0ln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsqt5"]
 atlas = ExtResource("3_mr68r")
@@ -188,7 +188,7 @@ scale_max = 3.0
 scale_curve = SubResource("CurveTexture_l6y77")
 color = Color(0.709804, 0.8, 0, 0.454902)
 
-[node name="OrangeShooterDefault" type="CharacterBody2D" groups=["enemy"]]
+[node name="OrangeShooterDefault" type="CharacterBody2D" unique_id=505439444 groups=["enemy"]]
 script = ExtResource("2_c5i5r")
 point_to_player = true
 projectile = ExtResource("3_t0vgv")
@@ -198,49 +198,47 @@ HEALTH = 5
 BEHAVIOR = "Still"
 death = "Shooter/Death"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1640050150]
 sprite_frames = SubResource("SpriteFrames_oowsf")
 animation = &"Charge_And_Shoot"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-libraries = {
-"Shooter": ExtResource("5_h64h8")
-}
-autoplay = "Shooter/Idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1378588417]
+libraries/Shooter = ExtResource("5_h64h8")
+autoplay = &"Shooter/Idle"
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1744120544]
 script = ExtResource("6_no1ee")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=836586463]
 shape = SubResource("CircleShape2D_353mi")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=206643790]
 scale = Vector2(0.84, 0.84)
 collision_layer = 3
 script = ExtResource("7_1a0ln")
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1952299680]
 scale = Vector2(1.58333, 1.58333)
 shape = SubResource("CircleShape2D_rfyu3")
 
-[node name="EdgeDetector" type="Area2D" parent="."]
+[node name="EdgeDetector" type="Area2D" parent="." unique_id=667327549]
 
-[node name="EdgeDetectorShape" type="CollisionShape2D" parent="EdgeDetector"]
+[node name="EdgeDetectorShape" type="CollisionShape2D" parent="EdgeDetector" unique_id=905047365]
 shape = SubResource("CircleShape2D_r02jg")
 
-[node name="ZigzagTimer" type="Timer" parent="."]
+[node name="ZigzagTimer" type="Timer" parent="." unique_id=140128678]
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." unique_id=857075089]
 
-[node name="ProjectileSource" type="Node2D" parent="."]
+[node name="ProjectileSource" type="Node2D" parent="." unique_id=1733440078]
 position = Vector2(0, 19)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=254853455]
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_1v6ot")
 lifetime = 0.3
 speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_1v6ot")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="EdgeDetector" to="." method="_on_edge_detector_body_entered"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ship_upgrades" load_steps=5 format=3 uid="uid://cip27l816fvh2"]
+[gd_resource type="Resource" script_class="ship_upgrades" format=3 uid="uid://cip27l816fvh2"]
 
 [ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_xfe41"]
 [ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_apnf6"]

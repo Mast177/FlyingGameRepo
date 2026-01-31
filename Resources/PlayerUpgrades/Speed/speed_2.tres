@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="upgrade_point" format=3 uid="uid://cjef1nlxd4ve"]
+
+[ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="1_ds8tm"]
+
+[resource]
+script = ExtResource("1_ds8tm")
+cost = 10
+amount = 25
+metadata/_custom_type_script = "uid://bn85trsbnii0f"

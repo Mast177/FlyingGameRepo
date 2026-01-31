@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dy4vhkuyq3cxk"]
+[gd_scene format=3 uid="uid://dy4vhkuyq3cxk"]
 
 [ext_resource type="Script" uid="uid://c82uho7rqt0yt" path="res://Assets/Scripts/Menus/upgrade_menu.gd" id="1_001oc"]
 [ext_resource type="Resource" uid="uid://cip27l816fvh2" path="res://Resources/PlayerUpgrades/Health/health_upgrades.tres" id="2_rr8f0"]
@@ -219,7 +219,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bylqn"]
 
-[node name="UpgradeMenu" type="Control" groups=["health"]]
+[node name="UpgradeMenu" type="Control" unique_id=809763382 groups=["health"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,7 +233,7 @@ speed = ExtResource("4_bylqn")
 weapon_count = ExtResource("5_s0coo")
 shield = ExtResource("6_rqdgh")
 
-[node name="Wallet" type="Label" parent="."]
+[node name="Wallet" type="Label" parent="." unique_id=707858136]
 layout_mode = 0
 offset_right = 228.0
 offset_bottom = 69.0
@@ -242,7 +242,7 @@ text = "$1000"
 label_settings = SubResource("LabelSettings_76hnu")
 horizontal_alignment = 2
 
-[node name="Payment" type="Label" parent="."]
+[node name="Payment" type="Label" parent="." unique_id=826006910]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 64.0
@@ -252,7 +252,7 @@ text = "+$0"
 label_settings = SubResource("LabelSettings_s8mek")
 horizontal_alignment = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1535822986]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,16 +260,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=502642630]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Health" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Health" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=1829193110]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Health"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Health" unique_id=251879382]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -284,7 +284,7 @@ text = "Health
 label_settings = SubResource("LabelSettings_a4l8y")
 horizontal_alignment = 1
 
-[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Health"]
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Health" unique_id=759674411]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 75.0
@@ -292,7 +292,7 @@ offset_right = 142.0
 offset_bottom = 98.0
 text = "Current"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Health"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Health" unique_id=130769600]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -302,32 +302,32 @@ grow_vertical = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Health/HBoxContainer"]
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" unique_id=751956133]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Health/HBoxContainer/Icon"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Health/HBoxContainer/Icon" unique_id=1043241586]
 position = Vector2(24, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("7_2gnvv")
 
-[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["health"]]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" unique_id=1520767167 groups=["health"]]
 custom_minimum_size = Vector2(81, 42)
 layout_mode = 2
 text = "$Cost"
 label_settings = SubResource("LabelSettings_uce5i")
 horizontal_alignment = 1
 
-[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["health"]]
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" unique_id=534840175 groups=["health"]]
 custom_minimum_size = Vector2(134, 42)
 layout_mode = 2
 text = "+Amount"
 label_settings = SubResource("LabelSettings_6t7yc")
 horizontal_alignment = 1
 
-[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" groups=["Buttons", "health"]]
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Health/HBoxContainer" unique_id=1697267438 groups=["Buttons", "health"]]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -343,12 +343,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
 text = "Purchase"
 icon_alignment = 1
 
-[node name="Damage" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Damage" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=143188494]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Damage"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Damage" unique_id=1717855837]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -363,7 +363,7 @@ text = "Damage
 label_settings = SubResource("LabelSettings_gcxtd")
 horizontal_alignment = 1
 
-[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Damage"]
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Damage" unique_id=444031714]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 75.0
@@ -371,7 +371,7 @@ offset_right = 142.0
 offset_bottom = 98.0
 text = "Current"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Damage"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Damage" unique_id=1316413733]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -381,32 +381,32 @@ grow_vertical = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer"]
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" unique_id=2009046735]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer/Icon"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer/Icon" unique_id=780844621]
 position = Vector2(24, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("8_xn0a8")
 
-[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["damage"]]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" unique_id=1909289605 groups=["damage"]]
 custom_minimum_size = Vector2(81, 42)
 layout_mode = 2
 text = "$Cost"
 label_settings = SubResource("LabelSettings_uce5i")
 horizontal_alignment = 1
 
-[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["damage"]]
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" unique_id=1054583491 groups=["damage"]]
 custom_minimum_size = Vector2(134, 42)
 layout_mode = 2
 text = "+Amount"
 label_settings = SubResource("LabelSettings_6t7yc")
 horizontal_alignment = 1
 
-[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" groups=["Buttons", "damage"]]
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Damage/HBoxContainer" unique_id=389805226 groups=["Buttons", "damage"]]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -422,12 +422,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
 text = "Purchase"
 icon_alignment = 1
 
-[node name="Speed" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Speed" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=2099351221]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Speed"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Speed" unique_id=1186164221]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -441,7 +441,7 @@ text = "Speed"
 label_settings = SubResource("LabelSettings_bhsr7")
 horizontal_alignment = 1
 
-[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Speed"]
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Speed" unique_id=845738743]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 75.0
@@ -449,7 +449,7 @@ offset_right = 142.0
 offset_bottom = 98.0
 text = "Current"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Speed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Speed" unique_id=1413529660]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -459,32 +459,32 @@ grow_vertical = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer"]
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" unique_id=505287883]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer/Icon"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer/Icon" unique_id=1958594027]
 position = Vector2(24, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("9_kfcao")
 
-[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["speed"]]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" unique_id=1646844049 groups=["speed"]]
 custom_minimum_size = Vector2(81, 42)
 layout_mode = 2
 text = "$Cost"
 label_settings = SubResource("LabelSettings_uce5i")
 horizontal_alignment = 1
 
-[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["speed"]]
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" unique_id=281937129 groups=["speed"]]
 custom_minimum_size = Vector2(134, 42)
 layout_mode = 2
 text = "+Amount"
 label_settings = SubResource("LabelSettings_6t7yc")
 horizontal_alignment = 1
 
-[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" groups=["Buttons", "speed"]]
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Speed/HBoxContainer" unique_id=495173109 groups=["Buttons", "speed"]]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -500,12 +500,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
 text = "Purchase"
 icon_alignment = 1
 
-[node name="Weapon Count" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Weapon Count" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=236257637]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count" unique_id=1724562210]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -520,7 +520,7 @@ text = "Weapon Count
 label_settings = SubResource("LabelSettings_ub6qk")
 horizontal_alignment = 1
 
-[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count"]
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count" unique_id=1757906044]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 75.0
@@ -528,7 +528,7 @@ offset_right = 142.0
 offset_bottom = 98.0
 text = "Current"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Weapon Count"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Weapon Count" unique_id=1443239093]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -538,32 +538,32 @@ grow_vertical = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer"]
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" unique_id=408423300]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer/Icon"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer/Icon" unique_id=1477977788]
 position = Vector2(24, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("10_at1bt")
 
-[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["weapon count"]]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" unique_id=1898091214 groups=["weapon count"]]
 custom_minimum_size = Vector2(81, 42)
 layout_mode = 2
 text = "$Cost"
 label_settings = SubResource("LabelSettings_uce5i")
 horizontal_alignment = 1
 
-[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["weapon count"]]
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" unique_id=1836853916 groups=["weapon count"]]
 custom_minimum_size = Vector2(134, 42)
 layout_mode = 2
 text = "+Amount"
 label_settings = SubResource("LabelSettings_6t7yc")
 horizontal_alignment = 1
 
-[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" groups=["Buttons", "weapon count"]]
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Weapon Count/HBoxContainer" unique_id=1447691654 groups=["Buttons", "weapon count"]]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -579,12 +579,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
 text = "Purchase"
 icon_alignment = 1
 
-[node name="Shield" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Shield" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=52752210]
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Shield"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/Shield" unique_id=1358407547]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -598,7 +598,7 @@ text = "Shield"
 label_settings = SubResource("LabelSettings_sp1kf")
 horizontal_alignment = 1
 
-[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Shield"]
+[node name="Current" type="Label" parent="CenterContainer/VBoxContainer/Shield" unique_id=1286217745]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 75.0
@@ -606,7 +606,7 @@ offset_right = 142.0
 offset_bottom = 98.0
 text = "Current"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Shield"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Shield" unique_id=252295206]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -616,32 +616,32 @@ grow_vertical = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer"]
+[node name="Icon" type="CenterContainer" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" unique_id=1007250119]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer/Icon"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer/Icon" unique_id=796246064]
 position = Vector2(24, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("11_4l77f")
 
-[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["shield"]]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" unique_id=1069426584 groups=["shield"]]
 custom_minimum_size = Vector2(81, 42)
 layout_mode = 2
 text = "$Cost"
 label_settings = SubResource("LabelSettings_uce5i")
 horizontal_alignment = 1
 
-[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["shield"]]
+[node name="Amount" type="Label" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" unique_id=2114102899 groups=["shield"]]
 custom_minimum_size = Vector2(134, 42)
 layout_mode = 2
 text = "+Amount"
 label_settings = SubResource("LabelSettings_6t7yc")
 horizontal_alignment = 1
 
-[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" groups=["Buttons", "shield"]]
+[node name="PurchaseButton" type="Button" parent="CenterContainer/VBoxContainer/Shield/HBoxContainer" unique_id=506598385 groups=["Buttons", "shield"]]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -657,10 +657,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qnex5")
 text = "Purchase"
 icon_alignment = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1224330131]
 wait_time = 0.1
 
-[node name="NextButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="." unique_id=1017547425]
 visible = false
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 0
@@ -682,7 +682,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_g85wm")
 text = "Next Level"
 icon_alignment = 1
 
-[node name="LevelSelectButton" type="Button" parent="."]
+[node name="LevelSelectButton" type="Button" parent="." unique_id=478480526]
 visible = false
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 0
@@ -704,26 +704,26 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_g85wm")
 text = "Level Select"
 icon_alignment = 1
 
-[node name="Audio" type="Node2D" parent="."]
+[node name="Audio" type="Node2D" parent="." unique_id=1300954888]
 
-[node name="Health" type="AudioStreamPlayer" parent="Audio"]
+[node name="Health" type="AudioStreamPlayer" parent="Audio" unique_id=1751224072]
 stream = ExtResource("12_75jmb")
 bus = &"SFX"
 
-[node name="Damage" type="AudioStreamPlayer" parent="Audio"]
+[node name="Damage" type="AudioStreamPlayer" parent="Audio" unique_id=893634361]
 stream = ExtResource("13_ba3k1")
 bus = &"SFX"
 
-[node name="Speed" type="AudioStreamPlayer" parent="Audio"]
+[node name="Speed" type="AudioStreamPlayer" parent="Audio" unique_id=1103092938]
 bus = &"SFX"
 
-[node name="WeaponCount" type="AudioStreamPlayer" parent="Audio"]
+[node name="WeaponCount" type="AudioStreamPlayer" parent="Audio" unique_id=934257110]
 bus = &"SFX"
 
-[node name="Shield" type="AudioStreamPlayer" parent="Audio"]
+[node name="Shield" type="AudioStreamPlayer" parent="Audio" unique_id=841781655]
 bus = &"SFX"
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=444652669]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 1
 anchors_preset = 7
@@ -744,7 +744,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bylqn")
 text = "Back
 "
 
-[node name="ResetUpgrades" type="Button" parent="."]
+[node name="ResetUpgrades" type="Button" parent="." unique_id=1864958977]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 0
 offset_left = 1124.0

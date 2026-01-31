@@ -3,8 +3,8 @@ extends Node
 var default_health : int = 10
 var default_speed : int = 200
 var default_damage : int = 2
-var default_weapon_count : int = 2
-var default_shield : int = 5
+var default_weapon_count : int = 1
+var default_shield : int = 0
 
 var current_health : int
 var current_speed : int
@@ -16,7 +16,7 @@ var score : int = 0
 
 var cash : int = 0
 var cash_earned : int = 0
-var total_cash_earned : int = 200
+var total_cash_earned : int = 0
 var health_upgrade_amount : int = 0
 var speed_upgrade_amount : int = 0
 var damage_upgrade_amount : int = 0
