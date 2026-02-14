@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://cnjfn1115r3b4"]
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://cnjfn1115r3b4"]
 
 [ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_ig7r7"]
 [ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_7ne2o"]

@@ -2,8 +2,8 @@ extends Node2D
 
 @export var waves : Array[Wave]
 @export_group("Wave Timing")
-@export var wave_cooldown : float = 10.0	## time between waves
-@export var spawn_interval : float = 1.0	## time between each enemy spawning
+var wave_cooldown : float = 10.0	## time between waves
+var spawn_interval : float = 1.0	## time between each enemy spawning
 
 @export_group("Wave Parameters")
 @export_enum("Spawn One", "Spawn In Line", "Random Spawn", "Left To Right",\

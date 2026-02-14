@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://b253q3uuwm5hg"]
+
+[ext_resource type="PackedScene" uid="uid://5e3iqr28edjy" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_down.tscn" id="1_uhxvg"]
+[ext_resource type="PackedScene" uid="uid://c20kaebtyhfvn" path="res://Scenes/Enemies/Poofer Varients/green_poofer.tscn" id="2_uhxvg"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="3_c7fk0"]
+
+[resource]
+script = ExtResource("3_c7fk0")
+enemy_wave = Array[PackedScene]([ExtResource("1_uhxvg"), ExtResource("1_uhxvg"), ExtResource("2_uhxvg"), ExtResource("2_uhxvg"), ExtResource("1_uhxvg"), ExtResource("1_uhxvg")])
+WAVE_SPAWN_BEHAVIOR = "Spawn In Arrow Down"
+spawn_index = 3
+spawn_interval = 1.5
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://ciec8cm46cvnx"]
+
+[ext_resource type="PackedScene" uid="uid://5e3iqr28edjy" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_down.tscn" id="1_3i7of"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_2gyte"]
+
+[resource]
+script = ExtResource("2_2gyte")
+enemy_wave = Array[PackedScene]([ExtResource("1_3i7of"), ExtResource("1_3i7of"), ExtResource("1_3i7of"), ExtResource("1_3i7of"), ExtResource("1_3i7of"), ExtResource("1_3i7of")])
+WAVE_SPAWN_BEHAVIOR = "Left To Right"
+spawn_index = 2
+spawn_interval = 1.5
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

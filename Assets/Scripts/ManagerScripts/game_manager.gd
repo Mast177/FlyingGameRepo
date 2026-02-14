@@ -18,7 +18,7 @@ var levels_path : Dictionary = {
 	1 : "res://Scenes/Levels/level_1.tscn",
 	2 : "res://Scenes/Levels/level_2.tscn",
 	3 : "res://Scenes/Levels/level_3.tscn",
-	4 : "res://Scenes/Levels/level_1.tscn",
+	4 : "res://Scenes/Levels/level_4.tscn",
 	5 : "res://Scenes/Levels/level_1.tscn"
 }
 

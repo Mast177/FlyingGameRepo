@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://b30ac8vn6dcxt"]
+
+[ext_resource type="PackedScene" uid="uid://5e3iqr28edjy" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_down.tscn" id="1_hw4ed"]
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="2_uey2a"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="3_ipeoj"]
+
+[resource]
+script = ExtResource("3_ipeoj")
+enemy_wave = Array[PackedScene]([ExtResource("1_hw4ed"), ExtResource("2_uey2a"), ExtResource("1_hw4ed"), ExtResource("2_uey2a"), ExtResource("1_hw4ed"), ExtResource("2_uey2a"), ExtResource("1_hw4ed"), ExtResource("2_uey2a"), ExtResource("1_hw4ed")])
+wave_cooldown = 20.0
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

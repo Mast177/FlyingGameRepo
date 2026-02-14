@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://d11olkbifcm4x"]
+
+[ext_resource type="PackedScene" uid="uid://7hhr7t3pilxq" path="res://Scenes/Enemies/OrangeShooterVarients/orange_shooter_bouncer.tscn" id="1_4e268"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_lrlby"]
+
+[resource]
+script = ExtResource("2_lrlby")
+enemy_wave = Array[PackedScene]([ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268"), ExtResource("1_4e268")])
+WAVE_SPAWN_BEHAVIOR = "Left To Right"
+spawn_index = 5
+metadata/_custom_type_script = "uid://cptt18nuftc2p"
