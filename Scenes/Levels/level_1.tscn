@@ -45,6 +45,7 @@ script = ExtResource("1_wgi7s")
 level_number = 1
 
 [node name="UI" parent="." unique_id=2020240721 instance=ExtResource("2_7qaba")]
+layer = -1
 
 [node name="Level_Complete" parent="UI" unique_id=1384809371 instance=ExtResource("13_athbf")]
 mouse_filter = 2
@@ -54,8 +55,6 @@ mouse_filter = 2
 [node name="EnemyWaveSpawner" parent="." unique_id=369575966 instance=ExtResource("3_n3thn")]
 position = Vector2(643, -24)
 waves = Array[ExtResource("5_afv7b")]([ExtResource("6_7r2dd"), ExtResource("7_k2mw1"), SubResource("Resource_3628d"), ExtResource("9_3628d"), ExtResource("10_irw6p"), ExtResource("11_31phq")])
-wave_cooldown = 1.0
-spawn_interval = 1.5
 SPAWN_BEHAVIOR = "Left To Right"
 
 [node name="KillBox" parent="." unique_id=947746050 instance=ExtResource("6_bmn2l")]

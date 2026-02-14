@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dg1nt6es7spjx" path="res://Scenes/player_fighter.tscn" id="1_ss2b2"]
 [ext_resource type="Script" uid="uid://bls6e1gve5nru" path="res://Assets/Scripts/Menus/ui.gd" id="1_tgjfx"]
 [ext_resource type="PackedScene" uid="uid://cm4gdkk5igukf" path="res://Scenes/Menus/pause_menu.tscn" id="3_4fllt"]
+[ext_resource type="Texture2D" uid="uid://cj3qwiv87go3k" path="res://Assets/Sprites/Small_Star.png" id="4_3sq67"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ga7j"]
 bg_color = Color(0.470422, 0.437082, 0.48638, 1)
@@ -10,7 +11,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.23137255, 0.23137255, 0.23137255, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipaai"]
 size = Vector2(315, 756.5)
@@ -75,13 +76,20 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fllt"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 45.0
+expand_margin_top = 49.0
+expand_margin_right = 29.0
+expand_margin_bottom = 33.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2t3p"]
 bg_color = Color(0.470422, 0.437082, 0.48638, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.23137255, 0.23137255, 0.23137255, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qmjtg"]
 font_size = 47
@@ -100,6 +108,28 @@ shadow_offset = Vector2(3, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3jy2"]
 size = Vector2(624, 80)
 
+[sub_resource type="Gradient" id="Gradient_wdxsr"]
+offsets = PackedFloat32Array(0, 0.20610687, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0.96564883, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3sq67"]
+gradient = SubResource("Gradient_wdxsr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wdxsr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 0)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.5
+color_initial_ramp = SubResource("GradientTexture1D_3sq67")
+
 [node name="UI" type="CanvasLayer" unique_id=1227684911 node_paths=PackedStringArray("health_bar", "shield_bar", "score_tally") groups=["UI"]]
 process_mode = 3
 script = ExtResource("1_tgjfx")
@@ -112,7 +142,7 @@ position = Vector2(0, 2)
 anchor_mode = 0
 
 [node name="PlayerFighter" parent="." unique_id=470294074 instance=ExtResource("1_ss2b2")]
-position = Vector2(628, 326)
+position = Vector2(640, 374)
 
 [node name="Control" type="Control" parent="." unique_id=371201411]
 layout_mode = 3
@@ -222,17 +252,21 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3sq67")
 value = 50.0
 show_percentage = false
 
-[node name="Panel2" type="Panel" parent="Control/HBoxContainer" unique_id=15546588]
-modulate = Color(1, 1, 1, 0)
+[node name="Background" type="Panel" parent="Control/HBoxContainer" unique_id=15546588]
+modulate = Color(0, 0, 0, 1)
+z_index = -100
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4fllt")
 
-[node name="Panel3" type="Panel" parent="Control/HBoxContainer" unique_id=1005835420]
-self_modulate = Color(1, 1, 1, 0)
+[node name="Background2" type="Panel" parent="Control/HBoxContainer" unique_id=1005835420]
+modulate = Color(0, 0, 0, 1)
+z_index = -100
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4fllt")
 
 [node name="Panel4" type="Panel" parent="Control/HBoxContainer" unique_id=186103980]
 layout_mode = 2
@@ -290,3 +324,13 @@ shape = SubResource("RectangleShape2D_q3jy2")
 process_priority = 1
 physics_interpolation_mode = 0
 z_index = 10
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1089650526]
+z_index = -10
+position = Vector2(637.00006, -45)
+scale = Vector2(3.72, 1)
+amount = 20
+texture = ExtResource("4_3sq67")
+lifetime = 10.0
+preprocess = 15.0
+process_material = SubResource("ParticleProcessMaterial_wdxsr")
