@@ -13,5 +13,5 @@
 [node name="Level" unique_id=927278689 instance=ExtResource("1_8rnd2")]
 level_number = 4
 
-[node name="EnemyWaveSpawner" parent="." index="1" unique_id=2035115739]
+[node name="EnemyWaveSpawner" parent="." index="2" unique_id=2035115739]
 waves = Array[ExtResource("2_6grq2")]([ExtResource("3_vwhew"), ExtResource("4_vwhew"), ExtResource("5_jqrsn"), ExtResource("6_t74h0"), ExtResource("7_keyqw"), ExtResource("8_gsxik"), ExtResource("9_3asqb")])

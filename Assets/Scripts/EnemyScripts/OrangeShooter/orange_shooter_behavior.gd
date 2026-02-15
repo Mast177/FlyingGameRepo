@@ -12,7 +12,7 @@ class_name OrangeShooter
 
 
 
-func _ready() -> void:
+func child_ready() -> void:
 	$AnimatedSprite2D/AnimationPlayer.play("Shooter/Charge_And_Shoot")
 	player = get_tree().get_first_node_in_group("player")
 	#if spawnPos and spawnRot are initialized, then set the position and rotation

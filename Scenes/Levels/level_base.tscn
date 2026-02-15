@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bqgqxegjy55wu" path="res://Scenes/Misc/kill_box.tscn" id="6_mrmml"]
 [ext_resource type="AudioStream" uid="uid://0mfk4w6mdv3m" path="res://Assets/Audio/Music/Space_Invasion.wav" id="8_614yd"]
 [ext_resource type="AudioStream" uid="uid://canx5maxqa5pa" path="res://Assets/Audio/Music/Game_Over_Effect_1.wav" id="9_4f6dp"]
+[ext_resource type="Texture2D" uid="uid://cj3qwiv87go3k" path="res://Assets/Sprites/Small_Star.png" id="11_ls6f5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4ad0"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 45.0
+expand_margin_top = 49.0
+expand_margin_right = 29.0
+expand_margin_bottom = 33.0
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ouscj"]
 clip_count = 2
@@ -28,11 +36,47 @@ Vector2i(0, 1): {
 }
 }
 
+[sub_resource type="Gradient" id="Gradient_s4hme"]
+offsets = PackedFloat32Array(0, 0.20610687, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0.96564883, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3sq67"]
+gradient = SubResource("Gradient_s4hme")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_updk7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 0)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.5
+color_initial_ramp = SubResource("GradientTexture1D_3sq67")
+
 [node name="Level" type="Node2D" unique_id=927278689 groups=["main"]]
 script = ExtResource("1_t6dks")
 
+[node name="Panel" type="Panel" parent="." unique_id=464531567]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 833.0
+offset_top = 451.00006
+offset_right = 833.0
+offset_bottom = 451.00006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(23.199999, 10.559999)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w4ad0")
+
 [node name="UI" parent="." unique_id=1624583402 instance=ExtResource("2_1uwe2")]
-layer = -10
+layer = 10
 
 [node name="Level_Complete" parent="UI" unique_id=32761183 instance=ExtResource("3_3vcfl")]
 mouse_filter = 2
@@ -51,3 +95,13 @@ position = Vector2(641, 850)
 stream = SubResource("AudioStreamInteractive_ouscj")
 autoplay = true
 bus = &"Music"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1002996421]
+z_index = -10
+position = Vector2(637.00006, -45)
+scale = Vector2(3.72, 1)
+amount = 20
+texture = ExtResource("11_ls6f5")
+lifetime = 10.0
+preprocess = 15.0
+process_material = SubResource("ParticleProcessMaterial_updk7")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4g3ltgkdefjt" path="res://Assets/Scripts/EnemyScripts/OrangeShooter/orange_shooter_behavior.gd" id="2_c5i5r"]
 [ext_resource type="Texture2D" uid="uid://csj8m7otg24y6" path="res://Assets/Sprites/Orange_Shooter_Sheet.png" id="3_mr68r"]
+[ext_resource type="AudioStream" uid="uid://burf57bhgt8fp" path="res://Assets/Audio/DefaultTracks/Default_Enemy_Death_SFX.tres" id="3_pu0ed"]
 [ext_resource type="PackedScene" uid="uid://d7j8pt3ftecq" path="res://Scenes/Projectiles/yellow_projectile.tscn" id="3_t0vgv"]
 [ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="4_eca5o"]
 [ext_resource type="AnimationLibrary" uid="uid://cxhbwwmo76c6t" path="res://Assets/Animations/Shooter.res" id="5_h64h8"]
@@ -192,9 +193,10 @@ color = Color(0.709804, 0.8, 0, 0.454902)
 script = ExtResource("2_c5i5r")
 point_to_player = true
 projectile = ExtResource("3_t0vgv")
+death_sfx = ExtResource("3_pu0ed")
 SCORE_VALUE = 200
 SPEED = 50
-HEALTH = 5
+HEALTH = 15
 BEHAVIOR = "Still"
 death = "Shooter/Death"
 
@@ -241,6 +243,7 @@ speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_1v6ot")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=455994799]
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="EdgeDetector" to="." method="_on_edge_detector_body_entered"]

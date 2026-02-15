@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://burf57bhgt8fp"]
+
+[ext_resource type="AudioStream" uid="uid://urh5s2yy8ndv" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Magisplosion_HY_PC-005.wav" id="1_uutrd"]
+
+[resource]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("1_uutrd")
