@@ -605,9 +605,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afubs"]
-radius = 5.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_7veex"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e86t1"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_6sek4"]
 clip_count = 5
@@ -686,14 +687,14 @@ damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2022152691]
 position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_afubs")
+shape = SubResource("CircleShape2D_7veex")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1298887278]
 position = Vector2(0, 4)
 script = ExtResource("3_0q0ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=541083861]
-shape = SubResource("CapsuleShape2D_afubs")
+shape = SubResource("CircleShape2D_e86t1")
 
 [node name="ShootCooldownTimer" type="Timer" parent="." unique_id=165841477]
 wait_time = 0.097
@@ -703,6 +704,7 @@ stream = SubResource("AudioStreamInteractive_6sek4")
 bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=164653346]
+visible = false
 shape = SubResource("CircleShape2D_xt1ak")
 
 [node name="ShieldRegenTimer" type="Timer" parent="." unique_id=410071624]

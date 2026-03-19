@@ -11,6 +11,7 @@ var spawnRot : float
 var target := "enemy"
 
 func _ready() -> void:
+	print("projectile spawned")
 	global_position = spawnPos
 	global_rotation = spawnRot
 	await get_tree().process_frame
@@ -31,9 +32,11 @@ func _on_life_time_timeout() -> void:
 #this allows for the projectile to specifically despawn when it detects the hitbox of an enemy
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group(target):
-		#print("hit")
+		print("hit target")
 		$HitSFX.play()
 		explode()
+	else:
+		print("invalid target")
 
 #function that creates particle effects on the removal of the projectile
 func explode():

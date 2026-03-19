@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Flying Game"
-run/main_scene="res://Scenes/Menus/main_menu.tscn"
+run/main_scene="uid://bkcxmspqbaie4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -50,6 +50,7 @@ Edge="This group is assigned to nodes which act as the edges of the game world. 
 spawn_point="This group is assigned to any node which is classified as an enemy spawnpoint for the purpose of identifying where an enemy is supposed to spawn"
 enemy_projectiles="a group specifically for projectiles belonging to enemies"
 Explosion="This group is designated for Hitboxes which are explosions"
+Barrier="This group is used to designate static bodies which function as barriers for the game world for only the player. Enemies/projectiles may still pass through."
 
 [input]
 

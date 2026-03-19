@@ -119,6 +119,7 @@ position = Vector2(0, 2)
 anchor_mode = 0
 
 [node name="PlayerFighter" parent="." unique_id=470294074 instance=ExtResource("1_ss2b2")]
+z_index = -10
 position = Vector2(640, 374)
 
 [node name="Control" type="Control" parent="." unique_id=371201411]
@@ -144,7 +145,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ga7j")
 
-[node name="BoundingBoxLeft" type="StaticBody2D" parent="Control/HBoxContainer/Panel" unique_id=1780642501 groups=["Edge"]]
+[node name="BoundingBoxLeft" type="StaticBody2D" parent="Control/HBoxContainer/Panel" unique_id=1780642501 groups=["Barrier", "Edge"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel/BoundingBoxLeft" unique_id=974712071]
 visible = false
@@ -252,7 +253,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_v2t3p")
 
-[node name="BoundingBoxRight" type="StaticBody2D" parent="Control/HBoxContainer/Panel4" unique_id=1633864038 groups=["Edge"]]
+[node name="BoundingBoxRight" type="StaticBody2D" parent="Control/HBoxContainer/Panel4" unique_id=1633864038 groups=["Barrier", "Edge"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/HBoxContainer/Panel4/BoundingBoxRight" unique_id=894574127]
 visible = false
@@ -283,7 +284,7 @@ text = "0000000000000000"
 label_settings = SubResource("LabelSettings_wxe7p")
 horizontal_alignment = 2
 
-[node name="BoundingBoxTop" type="StaticBody2D" parent="Control" unique_id=2047990062]
+[node name="BoundingBoxTop" type="StaticBody2D" parent="Control" unique_id=2047990062 groups=["Barrier"]]
 position = Vector2(525, -57)
 scale = Vector2(1.48, 1)
 
@@ -291,7 +292,7 @@ scale = Vector2(1.48, 1)
 position = Vector2(50, 16)
 shape = SubResource("RectangleShape2D_q3jy2")
 
-[node name="BoundingBoxBottom" type="StaticBody2D" parent="Control" unique_id=1567795344]
+[node name="BoundingBoxBottom" type="StaticBody2D" parent="Control" unique_id=1567795344 groups=["Barrier"]]
 position = Vector2(531, 743)
 scale = Vector2(1.72, 1)
 

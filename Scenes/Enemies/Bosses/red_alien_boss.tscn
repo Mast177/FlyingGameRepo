@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://33vsk8qu668n"]
+
+[ext_resource type="Script" uid="uid://dysovhaxvl58y" path="res://Assets/Scripts/EnemyScripts/red_alien_boss.gd" id="1_r3dl2"]
+[ext_resource type="Texture2D" uid="uid://bq111ec5wdkp7" path="res://Assets/Sprites/Boss_1_Sheet.png" id="1_w1doj"]
+[ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="2_r3dl2"]
+[ext_resource type="Texture2D" uid="uid://j3kagwb3s7ke" path="res://Assets/Sprites/Boss_1_Eye_Sheet.png" id="3_q2f75"]
+[ext_resource type="PackedScene" uid="uid://b3jmx2i1fkvkf" path="res://Scenes/Misc/ray_cast_2d.tscn" id="4_w1doj"]
+[ext_resource type="Script" uid="uid://d36n6ffj6ouyq" path="res://Assets/Scripts/EnemyScripts/eye_right.gd" id="5_q2f75"]
+[ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="5_w1doj"]
+[ext_resource type="AudioStream" uid="uid://bgaaydhdopxei" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav" id="8_0pq35"]
+[ext_resource type="AudioStream" uid="uid://dsfr63qasbyod" path="res://Assets/Audio/SFX/DSGNSynth_CAST-Mecha Energy Movement_HY_PC-007.wav" id="8_ma517"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu21o"]
+atlas = ExtResource("1_w1doj")
+region = Rect2(704, 0, 704, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05uuh"]
+atlas = ExtResource("1_w1doj")
+region = Rect2(3520, 0, 704, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8ose"]
+atlas = ExtResource("1_w1doj")
+region = Rect2(2816, 0, 704, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58puv"]
+atlas = ExtResource("1_w1doj")
+region = Rect2(2112, 0, 704, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwotg"]
+atlas = ExtResource("1_w1doj")
+region = Rect2(1408, 0, 704, 352)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4tbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu21o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05uuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8ose")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58puv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwotg")
+}],
+"loop": true,
+"name": &"Laugh",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kw3g3"]
+radius = 75.0
+height = 372.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vri3x"]
+radius = 49.244293
+
+[sub_resource type="Gradient" id="Gradient_0uny3"]
+offsets = PackedFloat32Array(0, 0.5495495, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 0.39607844, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pi2u6"]
+gradient = SubResource("Gradient_0uny3")
+
+[sub_resource type="Curve" id="Curve_q2f75"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.97580636, 0.509434), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0pq35"]
+curve = SubResource("Curve_q2f75")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q2f75"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 113.633
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 7.0
+scale_curve = SubResource("CurveTexture_0pq35")
+color_ramp = SubResource("GradientTexture1D_pi2u6")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mu21o"]
+clip_count = 2
+clip_0/name = &"BeamCharge"
+clip_0/stream = ExtResource("8_ma517")
+clip_0/auto_advance = 0
+clip_1/name = &"BeamFire"
+clip_1/stream = ExtResource("8_0pq35")
+clip_1/auto_advance = 0
+
+[node name="RedAlienBoss" type="Node2D" unique_id=1576168301 groups=["enemy"]]
+z_index = 100
+script = ExtResource("1_r3dl2")
+
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1522052048]
+sprite_frames = SubResource("SpriteFrames_i4tbx")
+animation = &"Idle"
+
+[node name="BodyHurtbox" type="Area2D" parent="Body" unique_id=548683272]
+script = ExtResource("2_r3dl2")
+metadata/_custom_type_script = "uid://drlys0vdbqhhi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BodyHurtbox" unique_id=1920007993]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kw3g3")
+
+[node name="EyeRight" type="Sprite2D" parent="Body" unique_id=379003093 node_paths=PackedStringArray("eye_caster")]
+position = Vector2(188, -88)
+texture = ExtResource("3_q2f75")
+script = ExtResource("5_q2f75")
+rotation_speed = 0.5
+eye_caster = NodePath("RayCast2D")
+
+[node name="EyeHitbox" type="Area2D" parent="Body/EyeRight" unique_id=1728562836 groups=["enemy"]]
+script = ExtResource("5_w1doj")
+metadata/_custom_type_script = "uid://dwqumx64rw0pg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/EyeRight/EyeHitbox" unique_id=806853160]
+position = Vector2(1, -5)
+rotation = -0.83853096
+shape = SubResource("CircleShape2D_vri3x")
+
+[node name="RayCast2D" parent="Body/EyeRight" unique_id=1580728340 node_paths=PackedStringArray("eye") instance=ExtResource("4_w1doj")]
+position = Vector2(0, 20)
+rotation = 1.5707964
+target_position = Vector2(0, 0)
+cast_speed = 4000.0
+is_casting = false
+color = Color(1, 0.3529412, 0, 1)
+damage_cooldown = 0.25
+eye = NodePath("..")
+growth_time = 0.25
+
+[node name="LazerWarningParticles" type="GPUParticles2D" parent="Body/EyeRight" unique_id=1896304837]
+position = Vector2(0, 20)
+emitting = false
+lifetime = 0.5
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_q2f75")
+
+[node name="EyeLeft" type="Sprite2D" parent="Body" unique_id=1993733540]
+position = Vector2(-188, -88)
+texture = ExtResource("3_q2f75")
+
+[node name="EyeHitbox" type="Area2D" parent="Body/EyeLeft" unique_id=604140629 groups=["enemy"]]
+script = ExtResource("5_w1doj")
+metadata/_custom_type_script = "uid://dwqumx64rw0pg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/EyeLeft/EyeHitbox" unique_id=1251125376]
+position = Vector2(-1, -5)
+rotation = -0.83853096
+shape = SubResource("CircleShape2D_vri3x")
+
+[node name="Hitbox" type="Area2D" parent="Body" unique_id=2058860675]
+position = Vector2(0, -1)
+script = ExtResource("5_w1doj")
+damage = 1
+metadata/_custom_type_script = "uid://dwqumx64rw0pg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Hitbox" unique_id=811173315]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kw3g3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2026446233]
+position = Vector2(0, 201)
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=464728652]
+wait_time = 2.0
+autostart = true
+
+[node name="WarningTimer" type="Timer" parent="." unique_id=1194453795]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=903645203]
+stream = SubResource("AudioStreamInteractive_mu21o")
+bus = &"SFX"
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
