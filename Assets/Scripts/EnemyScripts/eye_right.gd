@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var player : CharacterBody2D
 @onready var enable_eye_rotate := true
 @export var eye_caster : RayCast2D
+@export var EYE_DAMAGE := 1
 
 
 func _ready() -> void:
@@ -20,4 +21,13 @@ func _process(delta: float) -> void:
 		var direction = (player_pos - global_position)
 		var target_angle = direction.angle() - deg_to_rad(90)
 		rotation = lerp_angle(rotation, target_angle, (rotation_speed * delta) / rotation_time)
-		
+
+
+func set_casting(is_casting: bool) -> void:
+	$RayCast2D.is_casting = is_casting
+
+func get_casting() -> bool:
+	return $RayCast2D.is_casting
+
+func set_warning_particles(is_on: bool) -> void:
+	$LazerWarningParticles.emitting = is_on

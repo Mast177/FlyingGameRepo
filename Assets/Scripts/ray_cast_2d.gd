@@ -6,11 +6,10 @@ extends RayCast2D
 @export var color := Color.WHITE: set = set_color
 @export var damage_cooldown := 1.0
 
-@export var eye : Sprite2D
 
 @export var growth_time := 0.5
 
-
+@onready var eye = $".."
 @onready var line_2d: Line2D = $Line2D
 @onready var line_width = line_2d.width
 @onready var damage_cooldown_timer = $Timer
@@ -20,6 +19,7 @@ extends RayCast2D
 
 
 var tween: Tween = null
+@onready var damage = $"..".EYE_DAMAGE
 
 func _ready() -> void:
 	set_color(color)
@@ -28,6 +28,7 @@ func _ready() -> void:
 	target_position.x = 0.0
 	line_2d.visible = false
 	damage_cooldown_timer.wait_time = damage_cooldown
+	
 	
 	
 	
@@ -45,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		#print("laser hit")
 		var target = get_collider()
 		if target.has_method("take_damage") and damage_cooldown_timer.is_stopped():
-			#target.take_damage(1)
+			target.take_damage(damage)
 			damage_cooldown_timer.start()
 		laser_end_position = to_local(get_collision_point())
 	
@@ -105,7 +106,12 @@ func test():
 	print("test callback")
 
 func toggle_rotate():
-	if eye.enable_eye_rotate:
+		#print("eye")
+	if eye.enable_eye_rotate == true:
 		eye.enable_eye_rotate = false
+		#print(eye.enable_eye_rotate)
+		return
 	else:
 		eye.enable_eye_rotate = true
+		#print(eye.enable_eye_rotate)
+		return

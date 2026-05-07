@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b7rsahacwq6dx"]
+
+[ext_resource type="Texture2D" uid="uid://j3kagwb3s7ke" path="res://Assets/Sprites/Boss_1_Eye_Sheet.png" id="1_jdd1s"]
+[ext_resource type="Script" uid="uid://d36n6ffj6ouyq" path="res://Assets/Scripts/EnemyScripts/eye_right.gd" id="2_ile58"]
+[ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="3_m20m4"]
+[ext_resource type="PackedScene" uid="uid://b3jmx2i1fkvkf" path="res://Scenes/Misc/ray_cast_2d.tscn" id="4_pwps5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vri3x"]
+radius = 49.244293
+
+[sub_resource type="Gradient" id="Gradient_0uny3"]
+offsets = PackedFloat32Array(0, 0.5495495, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 0.39607844, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pi2u6"]
+gradient = SubResource("Gradient_0uny3")
+
+[sub_resource type="Curve" id="Curve_q2f75"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.97580636, 0.509434), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0pq35"]
+curve = SubResource("Curve_q2f75")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q2f75"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 113.633
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 7.0
+scale_curve = SubResource("CurveTexture_0pq35")
+color_ramp = SubResource("GradientTexture1D_pi2u6")
+
+[node name="EyeRight" type="Sprite2D" unique_id=702698837 node_paths=PackedStringArray("eye_caster") groups=["Eye", "enemy"]]
+texture = ExtResource("1_jdd1s")
+script = ExtResource("2_ile58")
+rotation_speed = 0.5
+eye_caster = NodePath("RayCast2D")
+
+[node name="EyeHitbox" type="Area2D" parent="." unique_id=720165289 groups=["enemy"]]
+script = ExtResource("3_m20m4")
+metadata/_custom_type_script = "uid://dwqumx64rw0pg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EyeHitbox" unique_id=158652314]
+position = Vector2(1, -5)
+rotation = -0.83853096
+shape = SubResource("CircleShape2D_vri3x")
+
+[node name="RayCast2D" parent="." unique_id=1580728340 instance=ExtResource("4_pwps5")]
+position = Vector2(0, 20)
+rotation = 1.5707964
+target_position = Vector2(0, 0)
+cast_speed = 4000.0
+is_casting = false
+color = Color(1, 0.3529412, 0, 1)
+damage_cooldown = 0.25
+growth_time = 0.25
+
+[node name="LazerWarningParticles" type="GPUParticles2D" parent="." unique_id=224093388]
+position = Vector2(0, 20)
+emitting = false
+lifetime = 0.5
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_q2f75")

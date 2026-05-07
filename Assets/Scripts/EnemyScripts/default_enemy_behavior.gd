@@ -115,7 +115,8 @@ func edge_bouce(delta: float):
 func take_damage(damage : int):
 	HEALTH -= damage
 	if HEALTH <= 0 and is_alive:
-		$AnimatedSprite2D/AnimationPlayer.play(death)
+		if has_node("AnimatedSprite2D"):
+			$AnimatedSprite2D/AnimationPlayer.play(death)
 		if audio_error:
 			print(self, " audio error death_sfx")
 		else:
