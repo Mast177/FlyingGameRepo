@@ -26,6 +26,10 @@ This project is being made so that I can become more familiar with the game deve
 5. Select Import in new window
 6. Select project from project manager and click edit to edit or run to simply run game
 
+## Playable Versions:
+Play in browser: [Space Shooters on Itch.io](https://mastcookie.itch.io/space-shooters)
+
+
 ## Project Structure
 - Raw assests (sprites, scripts, audio tracks, animation files) are included in the Assets folder
 - Resources used by scenes (player upgrade data, level wave data) are included in the Resources folder
