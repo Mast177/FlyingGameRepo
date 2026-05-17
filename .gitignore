@@ -17,3 +17,4 @@ mono_crash.*.json
 
 # GitHub-specific ignores
 README.md
+Playable_Versions/
