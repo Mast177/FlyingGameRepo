@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://e0emnt64for6"]
+
+[ext_resource type="PackedScene" uid="uid://b3dv0g0y77okd" path="res://Scenes/Levels/level_base.tscn" id="1_efpaj"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_arbu7"]
+[ext_resource type="Resource" uid="uid://cilvmtyv0m74m" path="res://Resources/Waves/Level_5_Waves/5_1.tres" id="3_arbu7"]
+[ext_resource type="Resource" uid="uid://kbn5m45gsofx" path="res://Resources/Waves/Level_5_Waves/5_2.tres" id="4_sanrf"]
+[ext_resource type="Resource" uid="uid://l4j3uf2et2k7" path="res://Resources/Waves/Level_5_Waves/5_3.tres" id="5_2634h"]
+[ext_resource type="Resource" uid="uid://brrofknylxmlm" path="res://Resources/Waves/Level_5_Waves/5_4.tres" id="6_2634h"]
+[ext_resource type="Resource" uid="uid://ctujwp83xluxx" path="res://Resources/Waves/Level_5_Waves/5_5.tres" id="7_reooa"]
+[ext_resource type="Resource" uid="uid://cedt35ln3b6r5" path="res://Resources/Waves/Level_5_Waves/5_6.tres" id="8_doouk"]
+[ext_resource type="Resource" uid="uid://ccje1pr3lbhwr" path="res://Resources/Waves/Level_5_Waves/5_7.tres" id="9_doouk"]
+[ext_resource type="Resource" uid="uid://cutftncix3f71" path="res://Resources/Waves/Level_5_Waves/5_boss.tres" id="10_0fyhm"]
+
+[node name="Level" unique_id=927278689 instance=ExtResource("1_efpaj")]
+level_number = 5
+
+[node name="EnemyWaveSpawner" parent="." index="2" unique_id=2035115739]
+waves = Array[ExtResource("2_arbu7")]([ExtResource("3_arbu7"), ExtResource("4_sanrf"), ExtResource("5_2634h"), ExtResource("6_2634h"), ExtResource("7_reooa"), ExtResource("8_doouk"), ExtResource("7_reooa"), ExtResource("8_doouk"), ExtResource("8_doouk"), ExtResource("9_doouk"), ExtResource("10_0fyhm")])
+SPAWN_BEHAVIOR = "Spawn In Arrow Down"

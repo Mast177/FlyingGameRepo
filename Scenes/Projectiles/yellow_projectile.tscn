@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://d7j8pt3ftecq"]
+[gd_scene format=3 uid="uid://d7j8pt3ftecq"]
 
 [ext_resource type="PackedScene" uid="uid://ca6ryr7l75phj" path="res://Scenes/Projectiles/orange_projectile.tscn" id="1_p0x72"]
-[ext_resource type="Script" path="res://Assets/Scripts/yellow_projectile.gd" id="2_3l0kp"]
+[ext_resource type="Script" uid="uid://bi3fx7rvtjv46" path="res://Assets/Scripts/yellow_projectile.gd" id="2_3l0kp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_71j0h"]
 load_path = "res://.godot/imported/Yellow_Projectile.png-51160b6cbb42614dbf77ec142dec8df2.ctex"
@@ -13,8 +13,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.956863, 0.498039, 0, 0)
 gradient = SubResource("Gradient_g4cam")
 
 [sub_resource type="Curve" id="Curve_6jt0i"]
-min_value = -200.0
-max_value = 200.0
+_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -62,7 +61,7 @@ scale_curve = SubResource("CurveTexture_dhc8e")
 color = Color(0.709804, 0.8, 0, 0.454902)
 color_ramp = SubResource("GradientTexture1D_aubb3")
 
-[node name="YellowProjectile" instance=ExtResource("1_p0x72")]
+[node name="YellowProjectile" unique_id=2002765850 instance=ExtResource("1_p0x72")]
 script = ExtResource("2_3l0kp")
 SPEED = 300.0
 

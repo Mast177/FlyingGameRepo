@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_0mayw"]
 [ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_plgsn"]
 [ext_resource type="Resource" uid="uid://cha23gpcv466c" path="res://Resources/PlayerUpgrades/Speed/speed_1.tres" id="3_rs1cg"]
+[ext_resource type="Resource" uid="uid://cjef1nlxd4ve" path="res://Resources/PlayerUpgrades/Speed/speed_2.tres" id="4_plgsn"]
+[ext_resource type="Resource" uid="uid://cv2xidljrgeov" path="res://Resources/PlayerUpgrades/Speed/speed_3.tres" id="5_rs1cg"]
 
 [resource]
 script = ExtResource("1_0mayw")
 upgrade_name = "Speed Upgrade"
 upgrade_list = Dictionary[int, ExtResource("2_plgsn")]({
-1: ExtResource("3_rs1cg")
+1: ExtResource("3_rs1cg"),
+2: ExtResource("4_plgsn"),
+3: ExtResource("5_rs1cg")
 })
 metadata/_custom_type_script = "uid://c15n8qxt58obm"

@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_eiqi4"]
 [ext_resource type="Resource" uid="uid://14wfblietcpw" path="res://Resources/PlayerUpgrades/Damage/damage_1.tres" id="3_eiqi4"]
 [ext_resource type="Resource" uid="uid://bcm8p7srqpe3s" path="res://Resources/PlayerUpgrades/Damage/damage_2.tres" id="4_owkc6"]
+[ext_resource type="Resource" uid="uid://cegvi2xaa7odm" path="res://Resources/PlayerUpgrades/Damage/damage_3.tres" id="5_171oq"]
 
 [resource]
 script = ExtResource("1_w5nwa")
 upgrade_name = "Damage Upgrade"
 upgrade_list = Dictionary[int, ExtResource("2_eiqi4")]({
 1: ExtResource("3_eiqi4"),
-2: ExtResource("4_owkc6")
+2: ExtResource("4_owkc6"),
+3: ExtResource("5_171oq")
 })
 metadata/_custom_type_script = "uid://c15n8qxt58obm"

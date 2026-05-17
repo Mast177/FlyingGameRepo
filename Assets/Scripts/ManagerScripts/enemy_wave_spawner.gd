@@ -89,6 +89,10 @@ func spawn_one(index : int = 0, current_element : int = 0):
 		if scene:
 			var instance = scene.instantiate()
 			var spawnpoint = get_spawnpoint(index).global_position
+			#make sure that the boss has an offset spawn position to account for its large size
+			if instance.scene_file_path == "res://Scenes/Enemies/Bosses/red_alien_boss.tscn":
+				print("spawning boss...")
+				spawnpoint = get_spawnpoint(index).global_position + Vector2(0, -70)
 			instance.spawnPos = spawnpoint
 			instance.add_to_group("enemy")
 			main.add_child.call_deferred(instance)

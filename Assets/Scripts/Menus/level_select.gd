@@ -54,11 +54,11 @@ func _on_button_3_pressed() -> void:
 
 
 func _on_button_4_pressed() -> void:
-	print("button 4 pressed")
+	SceneTransitionController.change_scene("res://Scenes/Levels/level_4.tscn", transition_type, transition_duration)
 
 
 func _on_button_5_pressed() -> void:
-	print("button 5 pressed")
+	SceneTransitionController.change_scene("res://Scenes/Levels/level_5.tscn", transition_type, transition_duration)
 
 
 func _on_ship_upgrade_menu_button_pressed() -> void:

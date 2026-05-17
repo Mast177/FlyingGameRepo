@@ -16,7 +16,7 @@ func _on_start_button_pressed() -> void:
 	$AnimationPlayer.play("main to level select")
 
 func _on_options_button_pressed() -> void:
-	print("options")
+	$Options.open()
 
 
 func _on_exit_button_pressed() -> void:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://j3kagwb3s7ke" path="res://Assets/Sprites/Boss_1_Eye_Sheet.png" id="1_jdd1s"]
 [ext_resource type="Script" uid="uid://d36n6ffj6ouyq" path="res://Assets/Scripts/EnemyScripts/eye_right.gd" id="2_ile58"]
+[ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="3_jdd1s"]
 [ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="3_m20m4"]
 [ext_resource type="PackedScene" uid="uid://b3jmx2i1fkvkf" path="res://Scenes/Misc/ray_cast_2d.tscn" id="4_pwps5"]
 
@@ -67,3 +68,12 @@ lifetime = 0.5
 trail_sections = 2
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_q2f75")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=366775838]
+script = ExtResource("3_jdd1s")
+metadata/_custom_type_script = "uid://drlys0vdbqhhi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=144295722]
+position = Vector2(1, -5)
+rotation = -0.83853096
+shape = SubResource("CircleShape2D_vri3x")

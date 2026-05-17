@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://l4j3uf2et2k7"]
+
+[ext_resource type="PackedScene" uid="uid://i836mc152jhc" path="res://Scenes/Enemies/RedEnemyVarients/red_alien_default.tscn" id="1_a2ihj"]
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="2_aityc"]
+
+[resource]
+script = ExtResource("2_aityc")
+enemy_wave = Array[PackedScene]([ExtResource("1_a2ihj"), ExtResource("1_a2ihj"), ExtResource("1_a2ihj"), ExtResource("1_a2ihj")])
+WAVE_SPAWN_BEHAVIOR = "Spawn In Arrow Down"
+spawn_index = 6
+wave_cooldown = 5.0
+spawn_interval = 0.25
+metadata/_custom_type_script = "uid://cptt18nuftc2p"

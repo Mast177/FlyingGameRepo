@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://77cs3k6cen28"]
+[gd_scene format=3 uid="uid://77cs3k6cen28"]
 
 [ext_resource type="Script" uid="uid://bsi4um1x2now3" path="res://Assets/Scripts/Menus/main_menu.gd" id="1_54ybt"]
 [ext_resource type="PackedScene" uid="uid://diypf3n08kgdi" path="res://Scenes/Menus/level_select.tscn" id="2_3j6lc"]
+[ext_resource type="PackedScene" uid="uid://dijco2idbwurb" path="res://Scenes/Menus/options_menu.tscn" id="2_5wi6m"]
 [ext_resource type="AudioStream" uid="uid://b2jb1luqoibkg" path="res://Assets/Audio/Music/Space_Invasion_2.wav" id="3_penys"]
 [ext_resource type="PackedScene" uid="uid://dy4vhkuyq3cxk" path="res://Scenes/Menus/upgrade_menu_alt.tscn" id="4_aur2u"]
 
@@ -405,7 +406,7 @@ _data = {
 &"upgrades to level select": SubResource("Animation_anmaw")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1510100014]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -415,9 +416,9 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_54ybt")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=498370883]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D" unique_id=1902382453]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -431,7 +432,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="LevelsButton" type="Button" parent="Node2D/VBoxContainer"]
+[node name="LevelsButton" type="Button" parent="Node2D/VBoxContainer" unique_id=843634121]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -441,7 +442,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w3jbb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kd3ii")
 text = "Level Select"
 
-[node name="OptionsButton" type="Button" parent="Node2D/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="Node2D/VBoxContainer" unique_id=948395654]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -452,7 +453,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kd3ii")
 text = "Options
 "
 
-[node name="ExitButton" type="Button" parent="Node2D/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Node2D/VBoxContainer" unique_id=7997994]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -462,7 +463,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w3jbb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kd3ii")
 text = "Exit"
 
-[node name="Title" type="Label" parent="Node2D"]
+[node name="Title" type="Label" parent="Node2D" unique_id=1259005852]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -482,9 +483,9 @@ theme_override_font_sizes/font_size = 75
 text = "Flying Game"
 horizontal_alignment = 1
 
-[node name="Decorations" type="Node" parent="Node2D"]
+[node name="Decorations" type="Node" parent="Node2D" unique_id=564974698]
 
-[node name="ColorRect" type="ColorRect" parent="Node2D/Decorations"]
+[node name="ColorRect" type="ColorRect" parent="Node2D/Decorations" unique_id=998628577]
 z_index = -100
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,28 +495,33 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.154876, 0.154876, 0.154876, 1)
 
-[node name="LevelSelect" parent="." instance=ExtResource("2_3j6lc")]
+[node name="LevelSelect" parent="." unique_id=1741058140 instance=ExtResource("2_3j6lc")]
 layout_mode = 1
 offset_left = 1280.0
 offset_right = 1280.0029
 offset_bottom = 0.00012207031
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_haxev"),
-&"Menu Animations": SubResource("AnimationLibrary_ftsii")
-}
-autoplay = "RESET"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=144693089]
+libraries/ = SubResource("AnimationLibrary_haxev")
+"libraries/Menu Animations" = SubResource("AnimationLibrary_ftsii")
+autoplay = &"RESET"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1546568977]
 stream = ExtResource("3_penys")
 volume_db = -10.0
 autoplay = true
 
-[node name="UpgradeMenu" parent="." instance=ExtResource("4_aur2u")]
+[node name="UpgradeMenu" parent="." unique_id=1267422437 instance=ExtResource("4_aur2u")]
 layout_mode = 1
 offset_top = 720.0
 offset_bottom = 719.9989
+
+[node name="Options" parent="." unique_id=1562344905 instance=ExtResource("2_5wi6m")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
 
 [connection signal="pressed" from="Node2D/VBoxContainer/LevelsButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Node2D/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

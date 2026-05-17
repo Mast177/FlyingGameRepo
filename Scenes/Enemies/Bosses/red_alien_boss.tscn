@@ -2,11 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dysovhaxvl58y" path="res://Assets/Scripts/EnemyScripts/red_alien_boss.gd" id="1_r3dl2"]
 [ext_resource type="Texture2D" uid="uid://bq111ec5wdkp7" path="res://Assets/Sprites/Boss_1_Sheet.png" id="1_w1doj"]
+[ext_resource type="AudioStream" uid="uid://dwqca0kw6fra" path="res://Assets/Audio/SFX/Boss_death.wav" id="2_0pq35"]
+[ext_resource type="Texture2D" uid="uid://bunxkw2bjcko" path="res://Assets/Sprites/Boss_1_Eyes_Sheet.png" id="2_i8ose"]
 [ext_resource type="Script" uid="uid://drlys0vdbqhhi" path="res://Assets/Scripts/hurtbox.gd" id="2_r3dl2"]
+[ext_resource type="Texture2D" uid="uid://grm67sleywi3" path="res://Assets/Sprites/Explosion_1_Sheet.png" id="4_58puv"]
+[ext_resource type="AudioStream" uid="uid://cj4pjgg1mbnen" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Forced Interruption_HY_PC-001.wav" id="4_hwotg"]
 [ext_resource type="PackedScene" uid="uid://b7rsahacwq6dx" path="res://Scenes/Enemies/Bosses/red_alien_boss_eye.tscn" id="4_q2f75"]
+[ext_resource type="Texture2D" uid="uid://782dytvx8gih" path="res://Assets/Sprites/Explosion_2_Sheet.png" id="5_hwotg"]
 [ext_resource type="Script" uid="uid://dwqumx64rw0pg" path="res://Assets/Scripts/hitbox.gd" id="5_w1doj"]
 [ext_resource type="AudioStream" uid="uid://bgaaydhdopxei" path="res://Assets/Audio/SFX/DSGNImpt_EXPLOSION-Nova Whiplash_HY_PC-002.wav" id="8_0pq35"]
 [ext_resource type="AudioStream" uid="uid://dsfr63qasbyod" path="res://Assets/Audio/SFX/DSGNSynth_CAST-Mecha Energy Movement_HY_PC-007.wav" id="8_ma517"]
+[ext_resource type="AudioStream" uid="uid://bkm1j6h4okj34" path="res://Assets/Audio/SFX/Boss_laugh.wav" id="9_ma517"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4tbx"]
+atlas = ExtResource("2_i8ose")
+region = Rect2(0, 352, 704, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldwlu"]
+atlas = ExtResource("2_i8ose")
+region = Rect2(1408, 0, 704, 352)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu21o"]
 atlas = ExtResource("1_w1doj")
@@ -30,6 +44,17 @@ region = Rect2(1408, 0, 704, 352)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4tbx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4tbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldwlu")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mu21o")
@@ -56,30 +81,305 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwl0f"]
+atlas = ExtResource("5_hwotg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw3g3"]
+atlas = ExtResource("4_58puv")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vri3x"]
+atlas = ExtResource("4_58puv")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnhnj"]
+atlas = ExtResource("4_58puv")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7sl3"]
+atlas = ExtResource("4_58puv")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug7wr"]
+atlas = ExtResource("4_58puv")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldwlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwl0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw3g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vri3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnhnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7sl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug7wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwl0f")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_sdjdr"]
+length = 2.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Death"]
+}
+
+[sub_resource type="Animation" id="Animation_7h20o"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosions/Explosion1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosions/Explosion1:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Explosion"]
+}
+
+[sub_resource type="Animation" id="Animation_mu21o"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_05uuh"]
+resource_name = "Laugh"
+length = 2.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26833647, 0.33500314, 0.4016698, 0.46833646, 0.53667295, 0.6033396, 0.6700063, 0.73667294, 0.8046165, 0.8712832, 0.93794984, 1.0046165, 1.0713414, 1.1380081, 1.2046747, 1.2713414, 1.3396778, 1.4063445, 1.4730111, 1.5396779, 1.6072085, 1.6738752, 1.7405418, 1.8072085, 1.875545, 1.9422117, 2.0088785, 2.075545, 2.1438816, 2.2105482, 2.277215, 2.3438816, 2.4114122, 2.4780788, 2.5447457, 2.6114123),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Laugh"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer/Laugh:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i8ose"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AudioStreamPlayer/Laugh:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58puv"]
+_data = {
+&"Death": SubResource("Animation_sdjdr"),
+&"Explosion": SubResource("Animation_7h20o"),
+&"Idle": SubResource("Animation_mu21o"),
+&"Laugh": SubResource("Animation_05uuh"),
+&"RESET": SubResource("Animation_i8ose")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kw3g3"]
 radius = 75.0
 height = 372.0
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mu21o"]
-clip_count = 2
+clip_count = 3
 clip_0/name = &"BeamCharge"
 clip_0/stream = ExtResource("8_ma517")
 clip_0/auto_advance = 0
 clip_1/name = &"BeamFire"
 clip_1/stream = ExtResource("8_0pq35")
 clip_1/auto_advance = 0
+clip_2/name = &"Death"
+clip_2/stream = ExtResource("2_0pq35")
+clip_2/auto_advance = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2f75"]
 
 [node name="RedAlienBoss" type="CharacterBody2D" unique_id=1140228502 groups=["enemy"]]
 z_index = 100
+position = Vector2(0, -201)
 script = ExtResource("1_r3dl2")
 SCORE_VALUE = 1000
-SPEED = 10
-HEALTH = 100
-BEHAVIOR = "Still"
+SPEED = 50
+HEALTH = 1000
+BEHAVIOR = "Zigzag"
+zig_angle = 0.0
+direction_change_interval = 8.0
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1522052048]
 sprite_frames = SubResource("SpriteFrames_i4tbx")
-animation = &"Idle"
+animation = &"Death"
+
+[node name="Explosions" type="Node2D" parent="Body" unique_id=1735181923]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Body/Explosions" unique_id=62995878]
+stream = ExtResource("4_hwotg")
+bus = &"SFX"
+
+[node name="Explosion1" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=730032822 groups=["DeathExplosion"]]
+position = Vector2(-132, -37)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion2" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=473932920 groups=["DeathExplosion"]]
+position = Vector2(109, -62)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion3" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=1764261380 groups=["DeathExplosion"]]
+position = Vector2(131, 62)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion4" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=1774534903 groups=["DeathExplosion"]]
+position = Vector2(-130, 44)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion5" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=140124920 groups=["DeathExplosion"]]
+position = Vector2(-211, -119)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion6" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=599246959 groups=["DeathExplosion"]]
+position = Vector2(-153, 34)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion7" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=384334873 groups=["DeathExplosion"]]
+position = Vector2(130, -63)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion8" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=1813137541 groups=["DeathExplosion"]]
+position = Vector2(40, 52)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="Explosion9" type="AnimatedSprite2D" parent="Body/Explosions" unique_id=1907208596 groups=["DeathExplosion"]]
+position = Vector2(-3.8146973e-06, -1.1444092e-05)
+scale = Vector2(2.449246, 2.449246)
+sprite_frames = SubResource("SpriteFrames_ldwlu")
+animation = &"Explosion"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body" unique_id=1858868802]
+libraries/ = SubResource("AnimationLibrary_58puv")
+autoplay = &"Idle"
 
 [node name="BodyHurtbox" type="Area2D" parent="Body" unique_id=548683272]
 script = ExtResource("2_r3dl2")
@@ -110,7 +410,6 @@ position = Vector2(0, 201)
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=464728652]
 wait_time = 2.0
-autostart = true
 
 [node name="WarningTimer" type="Timer" parent="." unique_id=1194453795]
 wait_time = 0.5
@@ -120,5 +419,19 @@ one_shot = true
 stream = SubResource("AudioStreamInteractive_mu21o")
 bus = &"SFX"
 
+[node name="Laugh" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=270987109]
+stream = ExtResource("9_ma517")
+bus = &"SFX"
+
+[node name="ZigzagTimer" type="Timer" parent="." unique_id=254601940]
+
+[node name="EdgeDetector" type="Area2D" parent="." unique_id=628544079]
+
+[node name="EdgeDetectorShape" type="CollisionShape2D" parent="EdgeDetector" unique_id=149597212]
+scale = Vector2(22.48, 1)
+shape = SubResource("RectangleShape2D_q2f75")
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="timeout" from="ZigzagTimer" to="." method="_on_zigzag_timer_timeout"]
+[connection signal="body_entered" from="EdgeDetector" to="." method="_on_edge_detector_body_entered"]

@@ -54,6 +54,9 @@ func _ready() -> void:
 func child_ready():
 	pass
 
+func _child_physics_process(_delta: float) -> void:
+	pass
+
 func _physics_process(delta: float) -> void:
 	match BEHAVIOR:
 		"Follow":
@@ -66,10 +69,12 @@ func _physics_process(delta: float) -> void:
 			zigzag(delta)
 			if !zigzag_behavior_enable:
 				zigzag_behavior_enable = true
+				
 				$ZigzagTimer.wait_time = direction_change_interval
 				$ZigzagTimer.start()
 	#move_to_player(delta)
 	move_and_slide()
+	_child_physics_process(delta)
 
 #move in a zigzag pattern downwards at designated angle and interval. also bouce off designated playspace walls
 func zigzag(delta: float):
@@ -113,8 +118,11 @@ func edge_bouce(delta: float):
 
 
 func take_damage(damage : int):
+	#print("took damage")
 	HEALTH -= damage
+	print("Heath: ", HEALTH)
 	if HEALTH <= 0 and is_alive:
+		#print("enemy dead")
 		if has_node("AnimatedSprite2D"):
 			$AnimatedSprite2D/AnimationPlayer.play(death)
 		if audio_error:

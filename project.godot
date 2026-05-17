@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Flying Game"
-run/main_scene="uid://bkcxmspqbaie4"
+run/main_scene="uid://77cs3k6cen28"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

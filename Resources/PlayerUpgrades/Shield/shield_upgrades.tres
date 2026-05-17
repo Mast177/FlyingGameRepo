@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://c15n8qxt58obm" path="res://Assets/Scripts/ResourceScripts/upgrade_resource.gd" id="1_wskfe"]
 [ext_resource type="Script" uid="uid://bn85trsbnii0f" path="res://Assets/Scripts/ResourceScripts/upgrade_point.gd" id="2_8kasw"]
 [ext_resource type="Resource" uid="uid://x080a4jqtoxi" path="res://Resources/PlayerUpgrades/Shield/shield_1.tres" id="3_8kasw"]
+[ext_resource type="Resource" uid="uid://st0j3g74qfv5" path="res://Resources/PlayerUpgrades/Shield/shield_2.tres" id="4_0nxx5"]
+[ext_resource type="Resource" uid="uid://d4bqq2xf7jw1i" path="res://Resources/PlayerUpgrades/Shield/shield_3.tres" id="5_l77eo"]
 
 [resource]
 script = ExtResource("1_wskfe")
 upgrade_name = "Shield Upgrade"
 upgrade_list = Dictionary[int, ExtResource("2_8kasw")]({
-1: ExtResource("3_8kasw")
+1: ExtResource("3_8kasw"),
+2: ExtResource("4_0nxx5"),
+3: ExtResource("5_l77eo")
 })
 metadata/_custom_type_script = "uid://c15n8qxt58obm"

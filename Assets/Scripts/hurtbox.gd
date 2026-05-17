@@ -21,7 +21,7 @@ func damage(hitbox: Hitbox):
 		owner.take_damage(hitbox.damage)
 
 func _on_area_entered(hitbox: Hitbox) -> void:
-	print("hit")
+	#print("hit")
 	#simple check. make sure that only hitboxes are aknowledged to prevent bugs
 	if hitbox == null or hitbox.owner == self.owner or \
 	(hitbox.owner.is_in_group("player_projectiles") and self.owner.is_in_group("player") or \

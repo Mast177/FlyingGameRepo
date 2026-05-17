@@ -691,6 +691,7 @@ shape = SubResource("CircleShape2D_7veex")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1298887278]
 position = Vector2(0, 4)
+scale = Vector2(1.3057106, 1.3057106)
 script = ExtResource("3_0q0ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=541083861]

@@ -11,5 +11,6 @@ func _ready() -> void:
 	GameManager.current_level = level_number
 
 func game_over() -> void:
-	$AudioStreamPlayer["parameters/switch_to_clip"] = "Game Over Effect 1"
+	if has_node("AudioStreamPlayer"):
+		$AudioStreamPlayer["parameters/switch_to_clip"] = "Game Over Effect 1"
 	

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://cutftncix3f71"]
+
+[ext_resource type="Script" uid="uid://cptt18nuftc2p" path="res://Assets/Scripts/ResourceScripts/wave_resource.gd" id="1_erx86"]
+[ext_resource type="PackedScene" uid="uid://33vsk8qu668n" path="res://Scenes/Enemies/Bosses/red_alien_boss.tscn" id="1_j5dht"]
+
+[resource]
+script = ExtResource("1_erx86")
+enemy_wave = Array[PackedScene]([ExtResource("1_j5dht")])
+WAVE_SPAWN_BEHAVIOR = "Spawn One"
+spawn_index = 5
+metadata/_custom_type_script = "uid://cptt18nuftc2p"
