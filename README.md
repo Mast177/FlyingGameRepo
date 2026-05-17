@@ -27,8 +27,9 @@ This project is being made so that I can become more familiar with the game deve
 6. Select project from project manager and click edit to edit or run to simply run game
 
 ## Playable Versions:
-Play in browser: [Space Shooters on Itch.io](https://mastcookie.itch.io/space-shooters)
-
+- Play in browser: [Space Shooters on Itch.io](https://mastcookie.itch.io/space-shooters)
+- Download for Windows: [Space Shooters on Windows](Playable_Versions/Space_Shooters_Windows.zip)
+- Download for Linux: [Space Shooters on Linux](Playable_Versions/SpaceShooters_Linux.zip)
 
 ## Project Structure
 - Raw assests (sprites, scripts, audio tracks, animation files) are included in the Assets folder
